@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, "build")));
 const port = process.env.PORT || 3001;
 
 // api routes
+app.use("/api/users", require("./routes/api/users"));
 
 // express route handler (for all * routes)
 app.get("/*", function (req, res) {
