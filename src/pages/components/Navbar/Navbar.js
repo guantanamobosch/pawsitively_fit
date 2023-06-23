@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
 
     <nav className='navigation'>
-      <div>Navbar</div>
+
       <Link to='/appointments'>Appointments</Link>
       &nbsp; | &nbsp;
       <Link to='/pets'>Pets</Link>
@@ -14,6 +14,7 @@ export default function Navbar() {
       <Link to='/providers'>Providers</Link>
       &nbsp; | &nbsp;
       <Link to='/resources'>Resources</Link>
+      
     </nav>
   )
 }
