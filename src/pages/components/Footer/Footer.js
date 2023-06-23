@@ -3,6 +3,10 @@ import './Footer.css'
 
 export default function Footer() {
   return (
-    <div>footer</div>
+    <body>
+  
+
+  <footer class="footer">Footer</footer>
+</body>
   )
 }
