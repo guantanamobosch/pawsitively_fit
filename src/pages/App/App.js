@@ -2,7 +2,7 @@ import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 // importing pages
-import Header from '../../components/header/header'
+import Header from '../../components/Header/Header'
 import Appointments from '../Appointments/Appointments'
 import Dashboard from '../Dashboard/Dashboard'
 import Messages from '../Messages/Messages'
