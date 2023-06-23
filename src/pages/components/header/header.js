@@ -1,11 +1,16 @@
 import React from 'react'
-import './Header.css'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
     <div className="Header">
       <div className="TitleContainer">
         <h1>FURSUR</h1>
+        <nav>
+      <Link to='/dashboard'>Dashboard</Link>
+      <Link to='/messages'>Messages</Link>
+      <Link to='/settings'>Settings</Link>
+    </nav>
       </div>
       <div className="authContainer">
         {/* {user ? (
