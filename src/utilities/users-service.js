@@ -1,3 +1,11 @@
+import * as usersAPI from "./users-api";
+
+export async function signUp(userData) {
+    const token = await usersAPI.signUp(userData);
+    localStorage.setItem("token", token);
+    return getUser();
+}
+
 export function getToken() {
     // acess local storage and store the value of the JWT (JSON Web Token)
     // getItem returns null if the "token" key does not exist
@@ -17,4 +25,9 @@ export function getToken() {
     }
 
     return token;
+}
+
+export function getUser() {
+    const token = getToken();
+    return token ? JSON.parse(atob(token.split(".")[1])).user : null;
 }
