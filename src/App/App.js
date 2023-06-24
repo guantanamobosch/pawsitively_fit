@@ -2,14 +2,14 @@ import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 // importing pages
-import Header from '../../components/Header/Header'
-import Appointments from '../Appointments/Appointments'
-import Dashboard from '../Dashboard/Dashboard'
-import Messages from '../Messages/Messages'
-import Pets from '../Pets/Pets'
-import Providers from '../Providers/Providers'
-import Resources from '../Resources/Resources'
-import Settings from '../Settings/Settings'
+import Header from '../components/Header/Header'
+import Appointments from '../pages/Appointments/Appointments'
+import Dashboard from '../pages/Dashboard/Dashboard'
+import Messages from '../pages/Messages/Messages'
+import Pets from '../pages/Pets/Pets'
+import Providers from '../pages/Providers/Providers'
+import Resources from '../pages/Resources/Resources'
+import Settings from '../pages/Settings/Settings'
 
 export default function App() {
   return (
