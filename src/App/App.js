@@ -2,21 +2,21 @@ import './App.css'
 import { Routes, Route, Navigate} from 'react-router-dom'
 
 // importing pages
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
-import Navbar from '../components/Navbar/Navbar'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
+import Navbar from '../Components/Navbar/Navbar'
 
 
-import Appointments from '../pages/Appointments/Appointments'
-import Dashboard from '../pages/Dashboard/Dashboard'
-import Messages from '../pages/Messages/Messages'
-import Pets from '../pages/Pets/Pets'
-import Providers from '../pages/Providers/Providers'
-import Resources from '../pages/Resources/Resources'
-import Settings from '../pages/Settings/Settings'
-import AuthPage from '../pages/AuthPage/AuthPage'
+import Appointments from '../Pages/Appointments/Appointments'
+import Dashboard from '../Pages/Dashboard/Dashboard'
+import Messages from '../Pages/Messages/Messages'
+import Pets from '../Pages/Pets/Pets'
+import Providers from '../Pages/Providers/Providers'
+import Resources from '../Pages/Resources/Resources'
+import Settings from '../Pages/Settings/Settings'
+import AuthPage from '../Pages/AuthPage/AuthPage'
 import { useState } from 'react'
-import { getUser } from '../utilities/users-service'
+import { getUser } from '../Utilities/users-service'
 
 export default function App() {
 

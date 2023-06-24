@@ -1,7 +1,7 @@
 import React from 'react'
 import './Providers.css'
-import SearchBar from '../../components/SearchBar/SearchBar'
-import ProviderCard from '../../components/ProviderCard/ProviderCard'
+import SearchBar from '../../Components/SearchBar/SearchBar'
+import ProviderCard from '../../Components/ProviderCard/ProviderCard'
 
 export default function Providers() {
   return (
