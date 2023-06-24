@@ -1,3 +1,4 @@
+
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../../models/user')
@@ -19,17 +20,17 @@ async function login(req, res) {
 
 // takes in POST request containing user sign up form data
 async function create(req, res) {
-  try {
-    // stores a new item in the db
-    const user = await User.create(req.body)
-    console.log(user)
-    // creates a token with user data as payload
-    const token = createJWT(user)
-    res.json(token)
-    console.log(token)
-  } catch (err) {
-    res.status(400).json(err)
-  }
+    try {
+        // stores a new item in the db
+        const user = await User.create(req.body);
+        console.log(user)
+        // creates a token with user data as payload
+        const token = createJWT(user);
+        res.json(token);
+        console.log(token)
+    } catch (err) {
+        res.status(400).json(err);
+    }
 }
 
 // takes in user data from the sign up form
