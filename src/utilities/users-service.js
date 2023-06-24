@@ -18,6 +18,10 @@ export async function login(credentials) {
     return getUser();
 }
 
+export function logOut() {
+    localStorage.removeItem("token");
+}
+
 export function getToken() {
     // acess local storage and retrieve the value of the JWT (JSON Web Token)
     // getItem returns null if the "token" key does not exist
