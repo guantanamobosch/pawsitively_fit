@@ -1,10 +1,10 @@
 import React from 'react'
 import './AuthPage.css'
 import SignUpForm from '../../Components/AuthForm/SignUpForm'
-// import LogInForm from '../../Components/AuthForm/LogInForm'
+import LogInForm from '../../Components/AuthForm/LogInForm'
 
 
-export default function AuthPage() {
+export default function AuthPage({setUser}) {
   return (
     <div>
 
@@ -14,12 +14,14 @@ export default function AuthPage() {
     
 
     <div>
-    <SignUpForm />
+    <SignUpForm
+    setUser = {setUser} />
   </div>
 
-  {/*<div>
-    <LogInForm />
-  </div> */}
+  <div>
+    <LogInForm
+    setUser = {setUser} />
+  </div>
 
   </div>
 )

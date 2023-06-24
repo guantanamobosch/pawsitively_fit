@@ -15,11 +15,24 @@ import Providers from '../pages/Providers/Providers'
 import Resources from '../pages/Resources/Resources'
 import Settings from '../pages/Settings/Settings'
 import AuthPage from '../pages/AuthPage/AuthPage'
+import { useState } from 'react'
+import { getUser } from '../utilities/users-service'
 
 export default function App() {
+
+  
+  const [user, setUser] = useState(getUser());
+
+
+
   return (
     <main>
       <Header />
+
+    { user ? 
+
+    <>
+      
       <Navbar />
 
       <Routes>
@@ -36,7 +49,13 @@ export default function App() {
         <Route path="/*" element={<Navigate to="/dashboard" />} />
       </Routes>
 
-      <AuthPage />
+      </>
+      :
+
+
+      <AuthPage setUser = {setUser} />
+
+    }
 
       <Footer />
     </main>

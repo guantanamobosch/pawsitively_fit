@@ -6,7 +6,7 @@ import { getToken } from "./users-service";
 
 // three parameters - the url being sent to/for, the HTTP request
 // method (default as "GET"), and the payload (default as null)
-export async function sendRequest(url, method = "GET", payload = null) {
+export default async function sendRequest(url, method = "GET", payload = null) {
     // stores the HTTP request method in the options object
     const options = { method };
 
@@ -21,6 +21,7 @@ export async function sendRequest(url, method = "GET", payload = null) {
 
     // from ./users-service.js - gets the token from local storage
     const token = getToken();
+    console.log(token)
 
     // only if getToken() returns a truthy value
     if (token) {
@@ -34,6 +35,7 @@ export async function sendRequest(url, method = "GET", payload = null) {
 
     // fetch is a built-in javascript function for making HTTP requests
     const res = await fetch(url, options);
+    console.log(res)
 
     // fetch considers HTTP error responses as successful responses, so
     // manually check for those with .ok and returns the response body
