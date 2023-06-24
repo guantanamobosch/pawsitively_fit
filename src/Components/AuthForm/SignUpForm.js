@@ -1,4 +1,4 @@
-import { signUp } from '../../utilities/users-service';
+import { signUp } from '../../Utilities/users-service';
 import React, { Component } from 'react'
 import './SignUpForm.css'
 

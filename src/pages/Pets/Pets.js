@@ -1,8 +1,8 @@
 import React from 'react'
 import './Pets.css'
-import PetCard from '../../components/PetCard/PetCard'
-import PetBubble from '../../components/PetBubble/PetBubble'
-import PetSummary from '../../components/PetSummary/PetSummary'
+import PetCard from '../../Components/PetCard/PetCard'
+import PetBubble from '../../Components/PetBubble/PetBubble'
+import PetSummary from '../../Components/PetSummary/PetSummary'
 
 export default function Pets() {
 

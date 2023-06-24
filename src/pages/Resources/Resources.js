@@ -1,7 +1,7 @@
 import React from 'react'
 import './Resources.css'
-import ResourceCard from '../../components/ResourceCard/ResourceCard'
-import SearchBar from '../../components/SearchBar/SearchBar'
+import ResourceCard from '../../Components/ResourceCard/ResourceCard'
+import SearchBar from '../../Components/SearchBar/SearchBar'
 
 export default function Resources() {
   return (

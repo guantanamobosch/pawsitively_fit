@@ -1,7 +1,7 @@
 import React from 'react'
 import './Messages.css'
-import Dropdown from '../../components/Dropdown/Dropdown'
-import MessageCard from '../../components/MessageCard/MessageCard'
+import Dropdown from '../../Components/Dropdown/Dropdown'
+import MessageCard from '../../Components/MessageCard/MessageCard'
 
 export default function Messages() {
   return (

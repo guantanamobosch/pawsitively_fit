@@ -1,18 +1,21 @@
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const User = require("../../models/user");
+
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const User = require('../../models/user')
 
 async function login(req, res) {
-    try {
-        const user = await User.findOne({ email: req.body.email }); // ❓ might be username instead
-        if (!user) throw new Error();
-        const match = await bcrypt.compare(req.body.password, user.password);
-        if (!match) throw new Error();
-        const token = createJWT(user);
-        res.json(token);
-    } catch (error) {
-        res.status(400).json(`Bad credentials: ${error}`);
-    }
+  try {
+    const user = await User.findOne({ email: req.body.email }) // ❓ might be username instead
+    if (!user) throw new Error()
+
+    const match = await bcrypt.compare(req.body.password, user.password)
+    if (!match) throw new Error()
+
+    const token = createJWT(user)
+    res.json(token)
+  } catch (err) {
+    res.status(400).json(`Bad Credentials: ${err}`)
+  }
 }
 
 // takes in POST request containing user sign up form data
@@ -32,26 +35,21 @@ async function create(req, res) {
 
 // takes in user data from the sign up form
 function createJWT(user) {
-    // creates a JSON Web Token storing user data as payload,
-    // signing the token with the SECRET in the .env, and
-    // setting expiration time as 24h from time of creation
-    return jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
-
+  // creates a JSON Web Token storing user data as payload,
+  // signing the token with the SECRET in the .env, and
+  // setting expiration time as 24h from time of creation
+  return jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h' })
 }
 
-
-
-function checkToken(req, res){
-    console.log(req.user);
-    res.json(req.exp);
-  }
-
-
+function checkToken(req, res) {
+  console.log(req.user)
+  res.json(req.exp)
+}
 
 // exports
 module.exports = {
-    create,
-    createJWT,
-    checkToken,
-    login
-};
+  create,
+  createJWT,
+  checkToken,
+  login,
+}
