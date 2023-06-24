@@ -2,27 +2,18 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("../../models/user");
 
-
-
 async function login(req, res) {
     try {
-
-        const user = await User.findOne({email: req.body.email});
-        if (!user) throw new Error;
-
+        const user = await User.findOne({ email: req.body.email }); // ❓ might be username instead
+        if (!user) throw new Error();
         const match = await bcrypt.compare(req.body.password, user.password);
-        if (!match) throw new Error
-
+        if (!match) throw new Error();
         const token = createJWT(user);
         res.json(token);
-    } catch (err) {
-        res.status(400).json('Invalid Credentials')
+    } catch (error) {
+        res.status(400).json(`Bad credentials: ${error}`);
     }
-
-  }
-
-
-
+}
 
 // takes in POST request containing user sign up form data
 async function create(req, res) {
@@ -36,19 +27,6 @@ async function create(req, res) {
         console.log(token)
     } catch (err) {
         res.status(400).json(err);
-    }
-}
-
-async function login(req, res) {
-    try {
-        const user = await User.findOne({ email: req.body.email }); // ❓ might be username instead
-        if (!user) throw new Error();
-        const match = await bcrypt.compare(req.body.password, user.password);
-        if (!match) throw new Error();
-        const token = createJWT(user);
-        res.json(token);
-    } catch (error) {
-        res.status(400).json(`Bad credentials: ${error}`);
     }
 }
 
@@ -74,5 +52,6 @@ function checkToken(req, res){
 module.exports = {
     create,
     createJWT,
-    checkToken
+    checkToken,
+    login
 };
