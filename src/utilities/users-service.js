@@ -12,6 +12,12 @@ export async function signUp(userData) {
     return getUser();
 }
 
+export async function login(credentials) {
+    const token = await usersAPI.login(credentials);
+    localStorage.setItem("token", token);
+    return getUser();
+}
+
 export function getToken() {
     // acess local storage and retrieve the value of the JWT (JSON Web Token)
     // getItem returns null if the "token" key does not exist
