@@ -8,15 +8,16 @@ require("./config/database"); // - connect to MongoDB
 // storing invoked express object in variable 'app'
 const app = express();
 
+// setting the port
+const port = process.env.PORT || 3001;
+
 // middleware (called on all server requests)
 app.use(logger("dev"));
 app.use(express.json()); // https://expressjs.com/en/api.html
 app.use(express.static(path.join(__dirname, "build")));
 
-// setting the port
-const port = process.env.PORT || 3001;
-
 // api routes
+app.use("/api/users", require("./routes/api/users"));
 
 // express route handler (for all * routes)
 app.get("/*", function (req, res) {
