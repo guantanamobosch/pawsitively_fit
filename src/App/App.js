@@ -36,6 +36,8 @@ export default function App() {
         <Route path="/*" element={<Navigate to="/dashboard" />} />
       </Routes>
 
+      <AuthPage />
+
       <Footer />
     </main>
   )
