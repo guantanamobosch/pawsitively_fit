@@ -1,7 +1,7 @@
 import sendRequest  from "./send-request";
 const BASE_URL = "/api/users";
 
-// takes in user data from sign up form, passed through
+// user data from sign up form, passed through
 // signUp function in users-service
 export function signUp(userData) {
     // sends POST request containing user data through
