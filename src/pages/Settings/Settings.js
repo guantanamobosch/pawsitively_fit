@@ -1,7 +1,7 @@
 import React from 'react'
 import './Settings.css'
-import Dropdown from '../../components/Dropdown/Dropdown'
-import SettingsCard from '../../components/SettingsCard/SettingsCard'
+import Dropdown from '../../Components/Dropdown/Dropdown'
+import SettingsCard from '../../Components/SettingsCard/SettingsCard'
 
 export default function Settings() {
   return (
