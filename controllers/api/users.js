@@ -13,7 +13,7 @@ async function login(req, res) {
     const token = createJWT(user)
     res.json(token)
   } catch (err) {
-    res.status(400).json(`Invalid Credentials: ${err}`)
+    res.status(400).json(`Bad Credentials: ${err}`)
   }
 }
 
