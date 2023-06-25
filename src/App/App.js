@@ -16,7 +16,7 @@ import Resources from '../Pages/Resources/Resources'
 import Settings from '../Pages/Settings/Settings'
 import AuthPage from '../Pages/AuthPage/AuthPage'
 import { useState } from 'react'
-import { getUser } from '../utilities/users-service'
+import { getUser } from '../utilities/users-utilities/users-service'
 
 export default function App() {
 

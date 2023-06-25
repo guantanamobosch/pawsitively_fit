@@ -1,6 +1,6 @@
 import React from 'react'
 import './Settings.css'
-import * as userService from '../../utilities/users-service'
+import * as userService from '../../utilities/users-utilities/users-service'
 
 // import Dropdown from '../../Components/Dropdown/Dropdown'
 // import SettingsCard from '../../Components/SettingsCard/SettingsCard'
