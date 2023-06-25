@@ -9,7 +9,7 @@ export default function Navbar() {
 
       <Link to='/appointments'>Appointments</Link>
       &nbsp; | &nbsp;
-      <Link to='/pets'>Peggts</Link>
+      <Link to='/pets'>Pets</Link>
       &nbsp; | &nbsp;
       <Link to='/providers'>Providers</Link>
       &nbsp; | &nbsp;
