@@ -3,9 +3,11 @@ const bcrypt = require("bcrypt");
 const User = require("../../models/user");
 
 async function login(req, res) {
-    try {
-        const user = await User.findOne({ email: req.body.email }); // ❓ might be username instead
-        if (!user) throw new Error();
+
+  try {
+    const user = await User.findOne({ username: req.body.username }) // ❓ might be username instead
+    if (!user) throw new Error()
+
 
         const match = await bcrypt.compare(req.body.password, user.password);
         if (!match) throw new Error();
