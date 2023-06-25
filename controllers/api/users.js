@@ -40,4 +40,5 @@ function createJWT(user) {
 // exports
 module.exports = {
     create,
+    login,
 };
