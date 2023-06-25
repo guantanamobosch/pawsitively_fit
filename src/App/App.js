@@ -16,7 +16,7 @@ import Resources from '../Pages/Resources/Resources'
 import Settings from '../Pages/Settings/Settings'
 import AuthPage from '../Pages/AuthPage/AuthPage'
 import { useState } from 'react'
-import { getUser } from '../Utilities/users-service'
+import { getUser } from '../utilities/users-service'
 
 export default function App() {
 
@@ -43,7 +43,7 @@ export default function App() {
         <Route path="/pets" element={<Pets />} />
         <Route path="/providers" element={<Providers />} />
         <Route path="/resources" element={<Resources />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/settings" element={<Settings setUser = {setUser} />} />
         <Route path="/authpage" element={<AuthPage />} />
         {/* Routing catch all // homepage */}
         <Route path="/*" element={<Navigate to="/dashboard" />} />

@@ -34,9 +34,9 @@ app.get("/*", function (req, res) {
 });
 
 // express server listening at port
-app.listen(port, function () {
-    console.log(`Express app running on port ${port}`);
-});
+// app.listen(port, function () {
+//     console.log(`Express app running on port ${port}`);
+// });
 
 
 module.exports = app
