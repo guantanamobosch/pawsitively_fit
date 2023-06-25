@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './Resources.css'
 // import ResourceCard from '../../Components/ResourceCard/ResourceCard'
@@ -14,3 +15,4 @@ export default function Resources() {
     </div>
   )
 }
+

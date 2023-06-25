@@ -1,5 +1,5 @@
-import './App.css'
-import { Routes, Route, Navigate} from 'react-router-dom'
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // importing pages
 import Header from '../Components/Header/Header'
@@ -60,4 +60,5 @@ export default function App() {
       <Footer />
     </main>
   )
+
 }

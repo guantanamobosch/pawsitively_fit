@@ -2,7 +2,7 @@
 // to make send requests from the src-level of our application.
 // (normally, src-level components cannot make requests to files
 // outside of the src folder)
-import { getToken } from "./users-service";
+import { getToken } from "./users-utilities/users-service";
 
 // three parameters - the url being sent to/for, the HTTP request
 // method (default as "GET"), and the payload (default as null)
