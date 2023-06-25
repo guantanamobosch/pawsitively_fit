@@ -5,6 +5,11 @@ const logger = require("morgan"); // - https://www.npmjs.com/package/morgan
 require("dotenv").config(); // - https://www.npmjs.com/package/dotenv#-documentation
 require("./config/database"); // - connect to MongoDB
 
+
+const bodyParser = require('body-parser');
+
+
+
 // storing invoked express object in variable 'app'
 const app = express();
 
@@ -19,6 +24,9 @@ app.use(express.static(path.join(__dirname, "build")));
 // api routes
 app.use("/api/users", require("./routes/api/users"));
 
+
+app.use(require('./config/checkToken'));
+
 // express route handler (for all * routes)
 app.get("/*", function (req, res) {
     // HTTP response object's .sendFile method()
@@ -29,3 +37,6 @@ app.get("/*", function (req, res) {
 app.listen(port, function () {
     console.log(`Express app running on port ${port}`);
 });
+
+
+module.exports = app
