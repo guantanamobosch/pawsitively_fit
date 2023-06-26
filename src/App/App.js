@@ -17,6 +17,7 @@ import AuthPage from "../Pages/AuthPage/AuthPage";
 import { useState } from "react";
 import { getUser } from "../utilities/users-utilities/users-service";
 import BreedInfo from "../Pages/Resources/DogBreedGuide/BreedInfo/BreedInfo";
+import DogBreedGuide from "../Pages/Resources/DogBreedGuide/DogBreedGuide";
 
 export default function App() {
     const [user, setUser] = useState(getUser());

@@ -1,15 +1,13 @@
 import { json } from "react-router-dom";
-import { sendRequest } from "../send-request";
-const breedListUrl = "https://dog.ceo/api/breeds/list/all";
+import sendRequest from "../send-request";
 
 export async function getBreedList() {
     console.log(
         "📍 getBreedList() func called from src/utilities/dogs-utilities/dogs-api"
     );
-    const parsedBreedList = await sendRequest(breedListUrl);
-    const breedsObject = parsedBreedList.message;
-    // console.log(parsedBreedList);
-    // console.log(breedsObject);
+    const breedsObject = await sendRequest("/api/dogs/get-breed-list");
+    // JSON.parse(breedsObject);
+    console.log(breedsObject);
     const breedList = [];
 
     Object.keys(breedsObject).forEach(function (key, index) {

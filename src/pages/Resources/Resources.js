@@ -67,7 +67,11 @@ export default function Resources() {
                                 alignItems: "center",
                             }}
                         >
-                            <Typography variant="h4">Breed Guide</Typography>
+                            <Link to="/resources/breed-guide">
+                                <Typography variant="h4">
+                                    Breed Guide
+                                </Typography>
+                            </Link>
                         </Card>
                     </Grid>
                     <Grid
