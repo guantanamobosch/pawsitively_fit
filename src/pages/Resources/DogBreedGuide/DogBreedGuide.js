@@ -11,7 +11,6 @@ export default function DogBreedGuide() {
         );
         const dogs = await getBreedList();
         setDogList(dogs);
-        console.log(`dogList is: ${dogList}`);
     }
 
     useEffect(() => {

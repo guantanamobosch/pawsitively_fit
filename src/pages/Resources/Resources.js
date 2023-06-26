@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Resources.css";
 
@@ -7,7 +7,6 @@ import "./Resources.css";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
-import DogBreedGuide from "./DogBreedGuide/DogBreedGuide";
 // import ResourceCard from '../../Components/ResourceCard/ResourceCard'
 // import SearchBar from '../../Components/SearchBar/SearchBar'
 

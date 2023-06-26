@@ -1,4 +1,3 @@
-import { json } from "react-router-dom";
 import sendRequest from "../send-request";
 
 export async function getBreedList() {
@@ -48,7 +47,9 @@ export async function getBreedPhoto(breedName) {
 
     const breedPhotoRequest = await sendRequest(
         "/api/dogs/get-breed-photo",
-        (method = "GET"),
-        (payload = breedName)
+        "POST",
+        { name: breedName }
     );
+    const breedPhoto = breedPhotoRequest.message;
+    return breedPhoto;
 }

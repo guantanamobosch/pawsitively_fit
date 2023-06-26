@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./BreedInfo.css";
-import BreedInfoOverlay from "./BreedInfoOverlay/BreedInfoOverlay";
-import { parse } from "dotenv";
+// import BreedInfoOverlay from "./BreedInfoOverlay/BreedInfoOverlay";
+// import { parse } from "dotenv";
+import { getBreedPhoto } from "../../../../utilities/dogs-utilities/dogs-api";
 
 export default function BreedInfo() {
     const [breedName, setBreedName] = useState("");
+    const [breedPicture, setBreedPicture] = useState("");
 
     function parseBreedUrl() {
         const currentUrl = window.location.href;
@@ -35,11 +37,12 @@ export default function BreedInfo() {
 
     async function getDogPhoto() {
         let hyphenatedBreedName = parseBreedUrl();
+        const dogPhoto = await getBreedPhoto(hyphenatedBreedName);
     }
 
     useEffect(() => {
         setBreedName(getBreedName);
-        getApiBreedName;
+        getDogPhoto();
     }, []);
 
     return (
