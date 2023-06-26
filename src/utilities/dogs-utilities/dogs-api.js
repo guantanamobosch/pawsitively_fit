@@ -5,8 +5,8 @@ export async function getBreedList() {
     console.log(
         "📍 getBreedList() func called from src/utilities/dogs-utilities/dogs-api"
     );
-    const breedsObject = await sendRequest("/api/dogs/get-breed-list");
-    // JSON.parse(breedsObject);
+    const breedsObjectRequest = await sendRequest("/api/dogs/get-breed-list");
+    const breedsObject = breedsObjectRequest.message;
     console.log(breedsObject);
     const breedList = [];
 
