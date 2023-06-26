@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getBreedList } from "../../../utilities/dogs-utilities/dogs-api";
 
 export default function DogBreedGuide() {
@@ -21,7 +22,32 @@ export default function DogBreedGuide() {
         <>
             {Array.isArray(dogList)
                 ? dogList.map((dog) => {
-                      return <p>{dog}</p>;
+                      if (dog.includes(" ")) {
+                          const nameArr = dog.split(" ");
+                          const firstNameLink =
+                              nameArr[1].charAt(0).toLowerCase() +
+                              nameArr[1].slice(1);
+                          const lastNameLink =
+                              nameArr[0].charAt(0).toLowerCase() +
+                              nameArr[0].slice(1);
+                          return (
+                              <Link
+                                  to={`/resources/breed-guide/breed-info/${firstNameLink}-${lastNameLink}`}
+                              >
+                                  <p>{dog}</p>
+                              </Link>
+                          );
+                      } else {
+                          const nameLink =
+                              dog.charAt(0).toLowerCase() + dog.slice(1);
+                          return (
+                              <Link
+                                  to={`/resources/breed-guide/breed-info/${nameLink}`}
+                              >
+                                  <p>{dog}</p>
+                              </Link>
+                          );
+                      }
                   })
                 : null}
         </>

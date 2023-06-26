@@ -41,7 +41,7 @@ export default function App() {
                         <Route path="/pets" element={<Pets />} />
                         <Route path="/providers" element={<Providers />} />
                         <Route
-                            path="/resources/breed-guide/breed-info"
+                            path="/resources/breed-guide/breed-info/:dogname"
                             element={<BreedInfo />}
                         />
                         <Route
