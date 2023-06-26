@@ -40,7 +40,7 @@ const petSchema = new Schema ({
     }],
     vet: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Vet"       
+        ref: "Vet"
     }],
 },{
     timestamps: true
