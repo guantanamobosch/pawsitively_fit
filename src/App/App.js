@@ -8,6 +8,7 @@ import Navbar from '../Components/Navbar/Navbar'
 
 
 import Appointments from '../Pages/Appointments/Appointments'
+import Assessment from '../Pages/Assessment/Assessment'
 import Dashboard from '../Pages/Dashboard/Dashboard'
 import Messages from '../Pages/Messages/Messages'
 import Pets from '../Pages/Pets/Pets'
@@ -36,6 +37,7 @@ export default function App() {
       <Routes>
         {/* Establishing routes */}
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/assessment/*" element={<Assessment user={user} />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/pets" element={<Pets user={user} />} />

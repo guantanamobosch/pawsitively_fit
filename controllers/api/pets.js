@@ -18,7 +18,7 @@ async function createPet(req, res, next) {
 async function indexPets(req, res, next) {
   try {
     const user = req.user._id
-    const pets = await Pet.find({ owner: user })
+    const pets = await Pet.find({ owner: user }).populate('owner')
     if (!pets) return new Error('No pets available')
     const pet = pets.map((pets) => pets)
     return res.status(200).json({ pet: pet })
@@ -27,7 +27,6 @@ async function indexPets(req, res, next) {
     console.log(error)
   }
 }
-
 
 // show by pet id
 

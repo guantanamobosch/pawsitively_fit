@@ -13,11 +13,10 @@ export async function createNewPet(petData) {
 }
 
 // indexes pets based on who is logged in
-export async function indexPets(ownerId) {
-  const response = await dogAPI.indexPets(ownerId)
+export async function indexPets() {
+  const response = await dogAPI.indexPets()
   const pets = response.pet
-  const userPets = pets.filter(pet => pet.owner === ownerId)
-  return userPets
+  return pets
 }
 
 // update pet
