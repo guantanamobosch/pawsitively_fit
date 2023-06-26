@@ -22,9 +22,10 @@ app.use(express.json()); // https://expressjs.com/en/api.html
 app.use(express.static(path.join(__dirname, "build")));
 
 // api routes
+app.use("/api/pets", require("./routes/api/pets"));
 app.use("/api/users", require("./routes/api/users"));
 
-
+// middleware that adds the user object from a JWT to req.user
 app.use(require('./config/checkToken'));
 
 // express route handler (for all * routes)

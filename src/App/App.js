@@ -16,14 +16,12 @@ import Resources from '../Pages/Resources/Resources'
 import Settings from '../Pages/Settings/Settings'
 import AuthPage from '../Pages/AuthPage/AuthPage'
 import { useState } from 'react'
-import { getUser } from '../utilities/users-utilities/users-service'
+import { getUser } from '../Utilities/users-utilities/users-service'
 
 export default function App() {
 
   
   const [user, setUser] = useState(getUser());
-
-
 
   return (
     <main>
@@ -40,7 +38,7 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/messages" element={<Messages />} />
-        <Route path="/pets" element={<Pets />} />
+        <Route path="/pets" element={<Pets user={user} />} />
         <Route path="/providers" element={<Providers />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/settings" element={<Settings setUser = {setUser} />} />

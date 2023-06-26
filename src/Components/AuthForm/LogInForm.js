@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as userService from '../../utilities/users-utilities/users-service'
+import * as userService from '../../Utilities/users-utilities/users-service'
 
 export default function LogInForm ({setUser}) {
 
