@@ -3,6 +3,7 @@ import './AssessmentBox.css'
 import MiniPetCard from '../MiniPetCard/MiniPetCard'
 import SearchBar from '../SearchBar/SearchBar'
 import SymptomCard from '../SymptomCard/SymptomCard'
+import SpecificSymptom from '../SpecificSymptom/SpecificSymptom'
 import ResultsList from '../ResultsList/ResultsList'
 import { useLocation } from 'react-router-dom'
 import * as petServices from '../../Utilities/dogs-utilities/dogs-services'
@@ -14,6 +15,7 @@ export default function AssessmentBox({
   symptoms,
   setSymptoms,
   loading,
+  currentSymptomIndex
 }) {
   const [pets, setPets] = useState([])
 
@@ -102,6 +104,15 @@ export default function AssessmentBox({
       {/* Assessment Page 4 */}
       {page === '/assessment/4' && (
         <>
+            <SpecificSymptom
+              selectedPet={selectedPet}
+              symptom={symptoms[currentSymptomIndex]}
+            />
+        </>
+      )}
+      {/* Assessment Page 5 */}
+      {page === '/assessment/5' && (
+        <>
           <p>
             We’re finalizing your results.
             <br />
@@ -111,8 +122,8 @@ export default function AssessmentBox({
           </p>
         </>
       )}
-      {/* Assessment Page 5 */}
-      {page === '/assessment/5' &&
+      {/* Assessment Page 6 */}
+      {page === '/assessment/6' &&
         (loading ? (
           <>
             <p>loading your results...</p>

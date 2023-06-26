@@ -7,12 +7,10 @@ export default function MiniPetCard({
   selectPet,
   deselectPet,
 }) {
-  const [selected, setSelected] = useState(false)
   const isSelected = selectedPet === pet // Check if the pet is selected
 
   // Handle pet selection/deselection
   function handleClick() {
-    setSelected(!selected)
     if (isSelected) {
       deselectPet() // Deselect the pet
     } else {
@@ -21,7 +19,7 @@ export default function MiniPetCard({
   }
 
   return (
-    <div className={selected ? 'selected' : 'unselected'} onClick={handleClick}>
+    <div className={isSelected ? 'selected' : 'unselected'} onClick={handleClick}>
       <p>{pet.name}</p>
     </div>
   )

@@ -6,27 +6,35 @@ import PageNav from '../../Components/PageNav/PageNav'
 import { Link, useNavigate } from 'react-router-dom'
 import { generateAssessment } from '../../Utilities/ai-utilities/ai-api'
 
-export default function Assessment({ user }) {
+export default function Assessment() {
   const [currentPage, setCurrentPage] = useState(1)
+  const [currentSymptom, setCurrentSymptom] = useState()
   const [beginTest, setBeginTest] = useState(false)
   const [finishTest, setFinishTest] = useState(false)
   const [selectedPet, setSelectedPet] = useState(null)
+  const [currentSymptomIndex, setCurrentSymptomIndex] = useState(0)
   const [selectedPetCount, setSelectedPetCount] = useState(0) // Track the count of selected pets
   const [loading, setLoading] = useState(false)
-  const [symptoms, setSymptoms] = useState([])  // State to store entered symptoms
+  const [symptoms, setSymptoms] = useState([]) // State to store entered symptoms
   const navigate = useNavigate()
 
   // Function to handle navigation to the next page
   function goToNextPage() {
-    setCurrentPage((prevPage) => prevPage + 1)
-    navigate(`/assessment/${currentPage + 1}`)
+    if (currentPage === 4) {
+      setCurrentSymptomIndex(0);
+      setCurrentPage((prevPage) => prevPage + 1);
+      navigate(`/assessment/${currentPage + 1}`);
+    } else {
+      setCurrentPage((prevPage) => prevPage + 1);
+      navigate(`/assessment/${currentPage + 1}`);
+    }
   }
 
   // Function to handle navigation to the previous page
   function goToPreviousPage() {
     if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1)
-      navigate(`/assessment/${currentPage - 1}`)
+      setCurrentPage((prevPage) => prevPage - 1);
+      navigate(`/assessment/${currentPage - 1}`);
     }
   }
 
@@ -57,22 +65,25 @@ export default function Assessment({ user }) {
         <>
           <ProgressBar />
           <AssessmentBox
-            user={user}
             selectedPet={selectedPet}
             setSelectedPet={setSelectedPet}
             handleSelectedPetCount={handleSelectedPetCount}
             symptoms={symptoms}
+            currentSymptomIndex={currentSymptomIndex}
             setSymptoms={setSymptoms}
             loading={loading}
           />
           <PageNav
             currentPage={currentPage}
-            totalPages={5}
+            totalPages={6}
             onNext={goToNextPage}
             onPrevious={goToPreviousPage}
             selectedPet={selectedPet}
             selectedPetCount={selectedPetCount}
             onGetAssessment={getAssessment}
+            setCurrentSymptomIndex={setCurrentSymptomIndex}
+            currentSymptomIndex={currentSymptomIndex}
+            symptoms={symptoms}
           />
           {/* This is the pagination footer that navigates the user to the next page of the assessment */}
           {/* navigating back and forth must also trigger movement on the completion bar */}

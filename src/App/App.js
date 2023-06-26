@@ -37,7 +37,7 @@ export default function App() {
       <Routes>
         {/* Establishing routes */}
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/assessment/*" element={<Assessment user={user} />} />
+        <Route path="/assessment/*" element={<Assessment />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/pets" element={<Pets user={user} />} />
