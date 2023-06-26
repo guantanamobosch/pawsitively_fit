@@ -40,3 +40,15 @@ export async function getBreedList() {
 
     return breedList.sort();
 }
+
+export async function getBreedPhoto(breedName) {
+    console.log(
+        "📍 getBreedPhoto func called from src/utilities/dogs-utilities/dogs-api"
+    );
+
+    const breedPhotoRequest = await sendRequest(
+        "/api/dogs/get-breed-photo",
+        (method = "GET"),
+        (payload = breedName)
+    );
+}

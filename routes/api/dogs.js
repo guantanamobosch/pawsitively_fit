@@ -4,5 +4,6 @@ const dogsCtrl = require("../../controllers/api/dogs");
 
 // "/api/dogs" route from server.js
 router.get("/get-breed-list", dogsCtrl.getBreedList);
+router.get("/get-breed-photo", dogsCtrl.getBreedPhoto);
 
 module.exports = router;

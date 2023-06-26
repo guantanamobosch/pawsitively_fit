@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./BreedInfo.css";
 import BreedInfoOverlay from "./BreedInfoOverlay/BreedInfoOverlay";
+import { parse } from "dotenv";
 
 export default function BreedInfo() {
     const [breedName, setBreedName] = useState("");
-    const [apiBreedName, setApiBreedName] = useState("");
 
-    function getBreedName() {
+    function parseBreedUrl() {
         const currentUrl = window.location.href;
         const urlArr = currentUrl.split("breed-info/");
         let hyphenatedBreedName = urlArr[1];
-        setApiBreedName(hyphenatedBreedName);
+        return hyphenatedBreedName;
+    }
+
+    function getBreedName() {
+        let hyphenatedBreedName = parseBreedUrl();
         if (hyphenatedBreedName.includes("-")) {
             const breedNameArr = hyphenatedBreedName.split("-");
             const firstName =
@@ -29,14 +33,9 @@ export default function BreedInfo() {
         }
     }
 
-    function getApiBreedName() {
-        const currentUrl = window.location.href;
-        const urlArr = currentUrl.split("breed-info/");
-        let hyphenatedBreedName = urlArr[1];
-        setApiBreedName(hyphenatedBreedName);
+    async function getDogPhoto() {
+        let hyphenatedBreedName = parseBreedUrl();
     }
-
-    async function getBreedPhoto() {}
 
     useEffect(() => {
         setBreedName(getBreedName);
