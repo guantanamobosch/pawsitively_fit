@@ -38,7 +38,7 @@ export default function Messages() {
       <h3 className="PageTitle">My Messages</h3>
 
       {!showForm ? (
-        <button onClick={() => setShowForm(true)}>Send a Message</button>
+        <button className='send-message' onClick={() => setShowForm(true)}>Send a Message</button>
       ) : (
         <form className= "MessagesForm" onSubmit={handleSubmit}>
           <div>
@@ -110,7 +110,7 @@ export default function Messages() {
           </ul>
         </div>
       ) : (
-        <p>No messages at this moment.</p>
+        <p className='message-status'>No messages at this moment.</p>
       )}
     </div>
   );
