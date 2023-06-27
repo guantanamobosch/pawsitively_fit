@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
+import "./DogBreedGuide.css";
 import { Link } from "react-router-dom";
 import { getBreedList } from "../../../utilities/dogs-utilities/dogs-api";
 import BreedNameAlphabetScroller from "./BreedNameAlphabetScroller/BreedNameAlphabetScroller";
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 export default function DogBreedGuide() {
     const [dogList, setDogList] = useState([]);
@@ -95,6 +95,7 @@ export default function DogBreedGuide() {
                                   <Link
                                       key={`${nameLink}-${index}`}
                                       to={`/resources/breed-guide/breed-info/${nameLink}`}
+                                      className="Breed-Guide-Link"
                                   >
                                       <p>{dog}</p>
                                   </Link>
