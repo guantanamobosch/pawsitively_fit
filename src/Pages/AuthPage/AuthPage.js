@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import './AuthPage.css';
-import SignUpForm from '../../Components/AuthForm/SignUpForm';
-import LogInForm from '../../Components/AuthForm/LogInForm';
+import React, { useState } from 'react'
+import './AuthPage.css'
+import SignUpForm from '../../Components/AuthForm/SignUpForm'
+import LogInForm from '../../Components/AuthForm/LogInForm'
 
 export default function AuthPage({ setUser }) {
-  const [showSignUpForm, setShowSignUpForm] = useState(false);
-  const [showLoginForm, setShowLoginForm] = useState(true);
-  const [pageTitle, setPageTitle] = useState("PetDoc");
+  const [showSignUpForm, setShowSignUpForm] = useState(false)
+  const [showLoginForm, setShowLoginForm] = useState(true)
+  const [pageTitle, setPageTitle] = useState('PetDoc')
 
   const handleCreateAccountClick = () => {
-    setShowSignUpForm(true);
-    setShowLoginForm(false);
-    setPageTitle("Create An Account");
-  };
+    setShowSignUpForm(true)
+    setShowLoginForm(false)
+    setPageTitle('Create An Account')
+  }
 
   return (
     <div className="auth-page-container">
@@ -24,13 +24,21 @@ export default function AuthPage({ setUser }) {
       )}
       {showLoginForm && <h2>New User?</h2>}
       {showLoginForm && (
-        <button className="signup-btn" onClick={handleCreateAccountClick}>
-          Create An Account
-        </button>
+        <div>
+          <button className="signup-btn" onClick={handleCreateAccountClick}>
+            Create An Account
+          </button>
+        </div>
       )}
       {showSignUpForm && (
-        <SignUpForm setUser={setUser} onCancel={() => { setShowSignUpForm(false); setShowLoginForm(true); }} />
+        <SignUpForm
+          setUser={setUser}
+          onCancel={() => {
+            setShowSignUpForm(false)
+            setShowLoginForm(true)
+          }}
+        />
       )}
     </div>
-  );
+  )
 }
