@@ -38,10 +38,12 @@ export default function BreedInfo() {
     async function getDogPhoto() {
         let hyphenatedBreedName = parseBreedUrl();
         const dogPhoto = await getBreedPhoto(hyphenatedBreedName);
+        setBreedPicture(dogPhoto);
     }
 
     useEffect(() => {
-        setBreedName(getBreedName);
+        const name = getBreedName();
+        setBreedName(name);
         getDogPhoto();
     }, []);
 
@@ -51,6 +53,7 @@ export default function BreedInfo() {
                 {/* <h3 class='PageTitle'>{pet.breed}</h3> */}
                 {/* sandwich icon here */}
                 {breedName}
+                <img src={breedPicture} alt="This is the dog!" />
             </div>
             {/* <img> */}
             {/* dog image here */}

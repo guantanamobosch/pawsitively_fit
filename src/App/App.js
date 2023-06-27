@@ -23,7 +23,7 @@ export default function App() {
     const [user, setUser] = useState(getUser());
 
     return (
-        <main>
+        <>
             <Header />
 
             {user ? (
@@ -66,6 +66,6 @@ export default function App() {
             )}
 
             <Footer />
-        </main>
+        </>
     );
 }

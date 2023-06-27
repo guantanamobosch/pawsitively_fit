@@ -1,6 +1,4 @@
 const breedListUrl = "https://dog.ceo/api/breeds/list/all";
-// const breedPhotoUrl = "";
-// const subBreedPhotoUrl = "";
 
 async function getBreedList(req, res) {
     console.log("📍 getBreedList in dogs Controller");
@@ -21,12 +19,31 @@ async function getBreedList(req, res) {
 
 async function getBreedPhoto(req, res) {
     console.log("📍 getBreedPhoto func in dogs controller");
-    console.log(req.body);
+    console.log(req.body.name);
+    const breedName = req.body.name;
     try {
-        if (req.body.name.includes("-")) {
-            const breedNameArr = req.body.name.split("-");
+        if (breedName.includes("-")) {
+            const breedNameArr = breedName.split("-");
+            const lowerCaseFirstName =
+                breedNameArr[0].charAt(0).toLowerCase() +
+                breedNameArr[0].slice(1);
+            const lowerCaseLastName =
+                breedNameArr[1].charAt(0).toLowerCase() +
+                breedNameArr[1].slice(1);
             const parsedBreedPhoto = await fetch(
-                `https://dog.ceo/api/breed/${breedNameArr[0]}/${breedNameArr[1]}/images/random`
+                `https://dog.ceo/api/breed/${lowerCaseFirstName}/${lowerCaseLastName}/images/random`
+            );
+            const breedPhoto = await parsedBreedPhoto.json();
+            if (parsedBreedPhoto.ok) {
+                res.status(200).json(breedPhoto);
+            } else {
+                throw new Error("Bad Dog Photo!");
+            }
+        } else {
+            const lowerCaseBreedName =
+                breedName[0].charAt(0).toLowerCase() + breedName.slice(1);
+            const parsedBreedPhoto = await fetch(
+                `https://dog.ceo/api/breed/${lowerCaseBreedName}/images/random`
             );
             const breedPhoto = await parsedBreedPhoto.json();
             if (parsedBreedPhoto.ok) {

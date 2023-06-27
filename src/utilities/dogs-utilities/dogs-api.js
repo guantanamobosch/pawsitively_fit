@@ -6,7 +6,7 @@ export async function getBreedList() {
     );
     const breedsObjectRequest = await sendRequest("/api/dogs/get-breed-list");
     const breedsObject = breedsObjectRequest.message;
-    console.log(breedsObject);
+    // console.log(breedsObject);
     const breedList = [];
 
     Object.keys(breedsObject).forEach(function (key, index) {

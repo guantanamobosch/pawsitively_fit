@@ -20,7 +20,7 @@ export default function DogBreedGuide() {
     return (
         <>
             {Array.isArray(dogList)
-                ? dogList.map((dog) => {
+                ? dogList.map((dog, index) => {
                       if (dog.includes(" ")) {
                           const nameArr = dog.split(" ");
                           const firstNameLink =
@@ -31,6 +31,7 @@ export default function DogBreedGuide() {
                               nameArr[0].slice(1);
                           return (
                               <Link
+                                  key={`${firstNameLink}-${lastNameLink}-${index}`}
                                   to={`/resources/breed-guide/breed-info/${firstNameLink}-${lastNameLink}`}
                               >
                                   <p>{dog}</p>
@@ -41,6 +42,7 @@ export default function DogBreedGuide() {
                               dog.charAt(0).toLowerCase() + dog.slice(1);
                           return (
                               <Link
+                                  key={`${nameLink}-${index}`}
                                   to={`/resources/breed-guide/breed-info/${nameLink}`}
                               >
                                   <p>{dog}</p>
