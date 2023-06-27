@@ -3,7 +3,7 @@ import './Providers.css'
 import SearchBar from '../../Components/SearchBar/SearchBar'
 import ProviderCard from '../../Components/ProviderCard/ProviderCard'
 import VetForm from '../../Components/VetForm/VetForm'
-import * as vetServices from '../../Utilities/vets-utilities/vets-services'
+import * as vetServices from '../../utilities/vets-utilities/vets-services'
 
 export default function Providers({ user }) {
   const [vets, setVets] = useState([])

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Pets.css'
 import PetForm from '../../Components/PetForm/PetForm'
-import * as petServices from '../../Utilities/dogs-utilities/dogs-services'
+import * as petServices from '../../utilities/dogs-utilities/dogs-services'
 import { Link } from 'react-router-dom';
 
 export default function Pets({ user }) {

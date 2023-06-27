@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './VetForm.css'
-import * as vetServices from '../../Utilities/vets-utilities/vets-services'
-import * as petServices from '../../Utilities/dogs-utilities/dogs-services'
+import * as vetServices from '../../utilities/vets-utilities/vets-services'
+import * as petServices from '../../utilities/dogs-utilities/dogs-services'
 
 export default function VetForm({ user, setVets }) {
   const [pets, setPets] = useState([])
