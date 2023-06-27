@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.PageTitle {
+  margin-right: 10px;
+}
+
+button {
+  margin-left: auto;
+}
+
+.SettingsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.SettingsContainer > div {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .SettingsContainer > div {
+    margin-bottom: 10px;
+  }
+}
