@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './PetForm.css'
-import * as petServices from '../../Utilities/dogs-utilities/dogs-services'
+import * as petServices from '../../utilities/dogs-utilities/dogs-services'
 
 export default function PetForm({ user, setPets }) {
   const [petData, setPetData] = useState({
