@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // importing pages
+
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
@@ -38,7 +39,7 @@ export default function App() {
                             element={<Appointments />}
                         />
                         <Route path="/messages" element={<Messages />} />
-                        <Route path="/pets" element={<Pets />} />
+                        <Route path="/pets" element={<Pets user={user} />} />
                         <Route path="/providers" element={<Providers />} />
                         <Route
                             path="/resources/breed-guide/breed-info/:dogname"

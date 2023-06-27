@@ -1,4 +1,7 @@
-import sendRequest from "../send-request";
+import { json } from 'react-router-dom'
+import sendRequest from '../send-request'
+const breedListUrl = 'https://dog.ceo/api/breeds/list/all'
+const BASE_URL = '/api/pets'
 
 export async function getBreedList() {
     console.log(
@@ -52,4 +55,29 @@ export async function getBreedPhoto(breedName) {
     );
     const breedPhoto = breedPhotoRequest.message;
     return breedPhoto;
+}
+
+// create pet
+export function createPet(petData) {
+  return sendRequest(BASE_URL, 'POST', petData)
+}
+
+// index all pets
+export function indexPets() {
+  return sendRequest(BASE_URL, 'GET')
+}
+
+// find specific pet by id
+export function findPetById(petId) {
+  return sendRequest(BASE_URL + `/${petId}`, 'GET')
+}
+
+// update pet info
+export function updatePet(petId, petData) {
+  return sendRequest(BASE_URL + `/update/${petId}`, 'PATCH', petData)
+}
+
+// delete pet
+export function deletePet(petId) {
+  return sendRequest(BASE_URL + `/${petId}`, 'DELETE')
 }
