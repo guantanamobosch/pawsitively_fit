@@ -42,6 +42,7 @@ export default function SettingsCard() {
           <p>Email: {formData.email}</p>
         </div>
       ) : (
+        
         <div className="card">
           <h3>Contact Information</h3>
           <form onSubmit={handleSubmit}>

@@ -4,6 +4,8 @@ import * as userService from '../../utilities/users-utilities/users-service';
 
 import Dropdown from '../../Components/Dropdown/Dropdown';
 import SettingsCard from '../../Components/SettingsCard/SettingsCard';
+import BillingSummary from '../../Components/BillingSummary/BillingSummary';
+import InsuranceInformation from '../../Components/InsuranceInformation/InsuranceInformation'
 
 export default function Settings({ user, setUser }) {
   function handleLogout() {
@@ -19,6 +21,8 @@ export default function Settings({ user, setUser }) {
       </div>
       <Dropdown />
       <SettingsCard />
+      <BillingSummary />
+      
     </div>
   );
 }
