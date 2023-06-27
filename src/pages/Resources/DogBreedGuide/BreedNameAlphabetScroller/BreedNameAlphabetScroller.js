@@ -16,6 +16,7 @@ export default function BreedNameAlphabetScroller({ setSelectedLetter }) {
                         onClick={() =>
                             handleClick(String.fromCharCode(65 + index))
                         }
+                        tabIndex="0"
                     >
                         {String.fromCharCode(65 + index)}
                     </li>

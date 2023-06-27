@@ -1,13 +1,25 @@
-/* .Breed-Name-Alphabet-Scroller-Container {
-    background-color: lightgray;
-} */
+.Breed-Name-Alphabet-Scroller-Container {
+    position: fixed;
+    top: 20%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
 
 .alphabet-scroll-wheel {
-    background-color: red;
+    background-color: lightgray;
     list-style-type: none;
     display: flex;
+    justify-content: space-between;
 }
 
 .alphabet-scroll-wheel-letter {
-    background-color: pink;
+    cursor: pointer;
+    outline: none;
+    text-decoration: underline;
+}
+
+.alphabet-scroll-wheel-letter:focus {
+    outline: 2px solid black;
+    text-decoration: none;
 }
