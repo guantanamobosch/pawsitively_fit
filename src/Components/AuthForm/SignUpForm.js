@@ -1,70 +1,78 @@
 import { signUp } from '../../utilities/users-utilities/users-service';
-import React, { Component } from 'react'
-import './SignUpForm.css'
+import React, { useState } from 'react';
+import './SignUpForm.css';
 
-
-export default class SignUpForm extends Component {
-
-  state = {
+export default function SignUpForm({ setUser, onCancel }) {
+  const [formState, setFormState] = useState({
     email: '',
     username: '',
     password: '',
     confirm: '',
     error: ''
+  });
 
-  };
+  function handleChange(evt) {
+    setFormState({
+      ...formState,
+      [evt.target.name]: evt.target.value,
+      error: ''
+    });
+  }
 
-  handleSubmit = async (evt) => {
+  async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const formData = {...this.state};
+      const formData = { ...formState };
       delete formData.confirm;
       delete formData.error;
       const user = await signUp(formData);
-      this.props.setUser(user)
-    
-    } catch (err){
-
-      this.setState({
+      setUser(user);
+    } catch (err) {
+      setFormState({
+        ...formState,
         error: 'Sign up Failed - Please Try Again'
       });
-
     }
   }
 
+  const disable = formState.password !== formState.confirm;
 
-
-    handleChange = (evt) => {
-      this.setState({
-        [evt.target.name]: evt.target.value,
-        error: ''
-      });
-    }
-
-
-
-  render () {
-
-    const disable = this.state.password !== this.state.confirm;
-    return (
-      <div>
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
+  return (
+    <div className="form-container">
+      <div className="signup-form-container">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <div className="form-group">
             <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+            <input type="email" name="email" value={formState.email} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
             <label>Username</label>
-            <input type="text" name="username" value={this.state.username} onChange={this.handleChange} required />
+            <input type="text" name="username" value={formState.username} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
             <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
+            <input type="password" name="password" value={formState.password} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirm" value={formState.confirm} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <div className="checkbox-group">
+              <input type="checkbox" name="terms" id="terms" />
+              <label htmlFor="terms" className="checkbox-label">I have read and agree to the Terms &amp; Conditions</label>
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="checkbox-group">
+              <input type="checkbox" name="receiveUpdates" id="receiveUpdates" />
+              <label htmlFor="receiveUpdates" className="checkbox-label">I want to receive communications, including important updates and promotions.</label>
+            </div>
+          </div>
+          <button className="signup-btn" type="submit" disabled={disable}>SIGN UP</button>
+        </form>
       </div>
-    );
-
-  }
+      <p className="error-message">&nbsp;{formState.error}</p>
+    </div>
+  );
 }
- 
