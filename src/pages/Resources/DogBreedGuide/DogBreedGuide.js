@@ -43,24 +43,31 @@ export default function DogBreedGuide() {
                                   nameArr[0].charAt(0).toLowerCase() +
                                   nameArr[0].slice(1);
                               return (
-                                  <Link
-                                      key={`${firstNameLink}-${lastNameLink}-${index}`}
-                                      to={`/resources/breed-guide/breed-info/${firstNameLink}-${lastNameLink}`}
-                                      className="Breed-Guide-Link"
-                                  >
-                                      <p id={dog[0]}>{dog}</p>
-                                  </Link>
+                                  <>
+                                      <h4 id={dog[0]}>{dog[0]}</h4>
+                                      <Link
+                                          key={`${firstNameLink}-${lastNameLink}-${index}`}
+                                          to={`/resources/breed-guide/breed-info/${firstNameLink}-${lastNameLink}`}
+                                          className="Breed-Guide-Link"
+                                      >
+                                          <p>{dog}</p>
+                                      </Link>
+                                  </>
                               );
                           } else {
                               const nameLink =
                                   dog.charAt(0).toLowerCase() + dog.slice(1);
                               return (
-                                  <Link
-                                      key={`${nameLink}-${index}`}
-                                      to={`/resources/breed-guide/breed-info/${nameLink}`}
-                                  >
-                                      <p id={dog[0]}>{dog}</p>
-                                  </Link>
+                                  <>
+                                      <h4 id={dog[0]}>{dog[0]}</h4>
+                                      <Link
+                                          key={`${nameLink}-${index}`}
+                                          to={`/resources/breed-guide/breed-info/${nameLink}`}
+                                          className="Breed-Guide-Link"
+                                      >
+                                          <p>{dog}</p>
+                                      </Link>
+                                  </>
                               );
                           }
                       } else {
