@@ -1,14 +1,11 @@
-import { json } from "react-router-dom";
-import { sendRequest } from "../send-request";
-const breedListUrl = "https://dog.ceo/api/breeds/list/all";
+import sendRequest from "../send-request";
 
 export async function getBreedList() {
     console.log(
         "📍 getBreedList() func called from src/utilities/dogs-utilities/dogs-api"
     );
-    const parsedBreedList = await sendRequest(breedListUrl);
-    const breedsObject = parsedBreedList.message;
-    // console.log(parsedBreedList);
+    const breedsObjectRequest = await sendRequest("/api/dogs/get-breed-list");
+    const breedsObject = breedsObjectRequest.message;
     // console.log(breedsObject);
     const breedList = [];
 
@@ -41,4 +38,18 @@ export async function getBreedList() {
     // console.log(breedList);
 
     return breedList.sort();
+}
+
+export async function getBreedPhoto(breedName) {
+    console.log(
+        "📍 getBreedPhoto func called from src/utilities/dogs-utilities/dogs-api"
+    );
+
+    const breedPhotoRequest = await sendRequest(
+        "/api/dogs/get-breed-photo",
+        "POST",
+        { name: breedName }
+    );
+    const breedPhoto = breedPhotoRequest.message;
+    return breedPhoto;
 }
