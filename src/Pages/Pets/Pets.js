@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './Pets.css'
 import PetForm from '../../Components/PetForm/PetForm'
+import PetCard from '../../Components/PetCard/PetCard'
 import * as petServices from '../../utilities/dogs-utilities/dogs-services'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export default function Pets({ user }) {
   const [pets, setPets] = useState([])
@@ -29,24 +30,23 @@ export default function Pets({ user }) {
 
       {showPetForm ? (
         <>
-          <button onClick={() => setShowPetForm(false)}>Close Form</button>
+          <button onClick={() => setShowPetForm(false)}>Close Create Pet Form</button>
           <PetForm user={user} setPets={setPets} />
         </>
       ) : (
-        <button onClick={() => setShowPetForm(true)}>Show Form</button>
+        <button onClick={() => setShowPetForm(true)}>Add New Pet</button>
       )}
 
-      <br /><br /><Link to="/assessment">Symptom Assessment</Link>
+      <br />
+      <br />
+      <Link to="/assessment">Symptom Assessment</Link>
 
-      {pets.map((pet) => (
-        <div key={pet._id}>
-          <h4>{pet.name}</h4>
-          {/* Display other pet information */}
-        </div>
+      {pets.map((pet, index) => (
+        <PetCard pet={pet} key={index} />
       ))}
 
       {/* <PetBubble />
-      <PetCard />
+
       <PetSummary /> */}
     </div>
   )

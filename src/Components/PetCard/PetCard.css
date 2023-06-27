@@ -1,0 +1,21 @@
+.petCard {
+  background-color: #E6E6E6;
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding: 2vh 0vh;
+}
+
+.petPhotoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.petPhoto {
+  width: 25vh;
+  height: 20vh;
+}
