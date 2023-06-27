@@ -41,7 +41,7 @@ export default function App() {
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/pets" element={<Pets user={user} />} />
-        <Route path="/providers" element={<Providers />} />
+        <Route path="/providers" element={<Providers user={user} />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/settings" element={<Settings setUser = {setUser} />} />
         <Route path="/authpage" element={<AuthPage />} />

@@ -18,7 +18,7 @@ async function createVet(req, res, next) {
 async function indexVets(req, res, next) {
   try {
     const user = req.user._id
-    const vets = await Vet.find({ owner: user }).populate('owner')
+    const vets = await Vet.find({ user: user }).populate('user')
     if (!vets) return new Error('No vets available')
     const vet = vets.map((vets) => vets)
     return res.status(200).json({ vet: vet })

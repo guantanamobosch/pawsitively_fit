@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './AssessmentBox.css'
 import MiniPetCard from '../MiniPetCard/MiniPetCard'
-import SearchBar from '../SearchBar/SearchBar'
+import SymptomForm from '../SymptomForm/SymptomForm'
 import SymptomCard from '../SymptomCard/SymptomCard'
 import SpecificSymptom from '../SpecificSymptom/SpecificSymptom'
 import ResultsList from '../ResultsList/ResultsList'
@@ -94,7 +94,7 @@ export default function AssessmentBox({
       {page === '/assessment/3' && (
         <>
           <p>What symptoms is {selectedPet.name} experiencing?</p>
-          <SearchBar onSymptomSubmit={handleSymptomSubmit} />
+          <SymptomForm onSymptomSubmit={handleSymptomSubmit} />
           {symptoms.map((symptom, index) => (
             <SymptomCard symptom={symptom} key={index} />
           ))}
