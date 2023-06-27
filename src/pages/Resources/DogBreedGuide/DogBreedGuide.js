@@ -2,10 +2,11 @@ import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getBreedList } from "../../../utilities/dogs-utilities/dogs-api";
 import BreedNameAlphabetScroller from "./BreedNameAlphabetScroller/BreedNameAlphabetScroller";
+import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 export default function DogBreedGuide() {
     const [dogList, setDogList] = useState([]);
-    const [selectedLetter, SetSelecterLetter] = useState("");
+    const [selectedLetter, SetSelectedLetter] = useState("");
     let dogLetter = "";
 
     async function getDogList() {
@@ -18,11 +19,17 @@ export default function DogBreedGuide() {
 
     useEffect(() => {
         getDogList();
-    }, []);
+        if (selectedLetter) {
+            const targetSection = document.getElementById(selectedLetter);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, [selectedLetter]);
 
     return (
         <>
-            <BreedNameAlphabetScroller />
+            <BreedNameAlphabetScroller setSelectedLetter={setSelectedLetter} />
             {Array.isArray(dogList)
                 ? dogList.map((dog, index) => {
                       if (index === 0 || dog[0] != dogLetter) {
