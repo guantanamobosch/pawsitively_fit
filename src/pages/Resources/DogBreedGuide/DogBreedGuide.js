@@ -6,7 +6,7 @@ import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 export default function DogBreedGuide() {
     const [dogList, setDogList] = useState([]);
-    const [selectedLetter, SetSelectedLetter] = useState("");
+    const [selectedLetter, setSelectedLetter] = useState("");
     let dogLetter = "";
 
     async function getDogList() {
@@ -32,7 +32,7 @@ export default function DogBreedGuide() {
             <BreedNameAlphabetScroller setSelectedLetter={setSelectedLetter} />
             {Array.isArray(dogList)
                 ? dogList.map((dog, index) => {
-                      if (index === 0 || dog[0] != dogLetter) {
+                      if (index === 0 || dog[0] !== dogLetter) {
                           dogLetter = dog[0];
                           if (dog.includes(" ")) {
                               const nameArr = dog.split(" ");

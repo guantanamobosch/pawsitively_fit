@@ -1,3 +1,13 @@
-.Breed-Name-Alphabet-Scroller-Container {
+/* .Breed-Name-Alphabet-Scroller-Container {
     background-color: lightgray;
+} */
+
+.alphabet-scroll-wheel {
+    background-color: red;
+    list-style-type: none;
+    display: flex;
+}
+
+.alphabet-scroll-wheel-letter {
+    background-color: pink;
 }
