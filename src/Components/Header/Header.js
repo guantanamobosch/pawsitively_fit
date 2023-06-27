@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SettingsIcon from '@mui/icons-material/Settings'
-import MessageIcon from '@mui/icons-material/Message';
-import DashboardIcon from '@mui/icons-material/Home';
-import PetsIcon from '@mui/icons-material/Pets';
+import Settings from '@mui/icons-material/Settings'
+import Message from '@mui/icons-material/Message';
+import Home from '@mui/icons-material/Home';
+import Pets from '@mui/icons-material/Pets';
 import './Header.css'
 
 export default function Header() {
@@ -12,10 +12,10 @@ export default function Header() {
 
 
       <nav className='header-navigation'>
-      <h1>{<PetsIcon className="pet-icon" />} Fur Sur</h1>
-      <Link to='/dashboard'>{<DashboardIcon className="header-icon" style={{ color: 'black' }} />}</Link>
-      <Link to='/messages'>{<MessageIcon className="header-icon" style={{ color: 'black' }} />}</Link>
-      <Link to='/settings'>{<SettingsIcon className="header-icon" style={{ color: 'black' }} />}</Link>
+      <h1>{<Pets className="pet-icon" />} Fur Sur</h1>
+      <Link to='/dashboard'>{<Home className="header-icon" style={{ color: 'black' }} />}</Link>
+      <Link to='/messages'>{<Message className="header-icon" style={{ color: 'black' }} />}</Link>
+      <Link to='/settings'>{<Settings className="header-icon" style={{ color: 'black' }} />}</Link>
    
       </nav>
       
