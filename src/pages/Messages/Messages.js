@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Messages.css';
+import MessageDropdown from '../../Components/Dropdown/Message/MessageDropdown'
 
 export default function Messages() {
   const [showForm, setShowForm] = useState(false);
@@ -36,6 +37,8 @@ export default function Messages() {
   return (
     <div>
       <h3 className="PageTitle">My Messages</h3>
+
+      <MessageDropdown />
 
       {!showForm ? (
         <button className='send-message' onClick={() => setShowForm(true)}>Send a Message</button>
