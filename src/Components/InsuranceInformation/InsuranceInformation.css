@@ -1,49 +1,46 @@
-.card-container {
+.insurance-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     padding: 20px;
     box-sizing: border-box;
-    min-height: calc(100vh - 40px); /* Adjust the value as per your requirement */
   }
   
-  .card {
+  .insurance-form,
+  .insurance-card {
     max-width: 400px;
     width: 100%;
     padding: 20px;
     background-color: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 auto; /* Center the card horizontally */
-    margin-bottom: 200px; /* Add margin at the bottom for spacing */
+    margin: 0 auto;
+    margin-bottom: 80px;
   }
   
-  .card h3 {
+  .insurance-form form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1px;
+  }
+  
+  .insurance-form div {
     margin-bottom: 10px;
   }
   
-  .card form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .card form div {
-    margin-bottom: 15px;
-  }
-  
-  .card label {
+  .insurance-form label {
     font-weight: bold;
   }
   
-  .card input[type='text'],
-  .card input[type='tel'],
-  .card input[type='email'] {
+  .insurance-form input[type='text'],
+  .insurance-form input[type='number'] {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
   
-  .card button[type='submit'] {
+  .insurance-form button[type='submit'] {
     padding: 8px 12px;
     background-color: #007bff;
     color: #fff;
@@ -52,25 +49,22 @@
     cursor: pointer;
   }
   
-  .card button[type='submit']:hover {
+  .insurance-form button[type='submit']:hover {
     background-color: #0056b3;
   }
   
-  .card p {
+  .insurance-card p {
     margin: 5px 0;
   }
   
   @media (max-width: 767px) {
-    .card-container {
-      display: flex;
+    .insurance-container {
       flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
     }
-  
-    .card {
-      margin: 20px 0 150px 0px; /* Add vertical margin for mobile screens */
+    
+    .insurance-form,
+    .insurance-card {
+      margin: 20px 0;
     }
   }
   

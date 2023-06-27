@@ -1,0 +1,7 @@
+.Breed-Guide-Link {
+    text-decoration: none;
+}
+
+.Breed-Guide-Link:hover {
+    text-decoration: underline;
+}
