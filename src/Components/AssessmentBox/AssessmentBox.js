@@ -6,7 +6,7 @@ import SymptomCard from '../SymptomCard/SymptomCard'
 import SpecificSymptom from '../SpecificSymptom/SpecificSymptom'
 import ResultsList from '../ResultsList/ResultsList'
 import { useLocation } from 'react-router-dom'
-import * as petServices from '../../Utilities/dogs-utilities/dogs-services'
+import * as petServices from '../../utilities/dogs-utilities/dogs-services'
 
 export default function AssessmentBox({
   setSelectedPet,

@@ -4,7 +4,7 @@ import AssessmentBox from '../../Components/AssessmentBox/AssessmentBox'
 import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import PageNav from '../../Components/PageNav/PageNav'
 import { Link, useNavigate } from 'react-router-dom'
-import { generateAssessment } from '../../Utilities/ai-utilities/ai-api'
+import { generateAssessment } from '../../utilities/ai-utilities/ai-api'
 
 export default function Assessment() {
   const [currentPage, setCurrentPage] = useState(1)
