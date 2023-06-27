@@ -24,6 +24,7 @@ app.use(require('./config/checkToken'));
 // api routes
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/pets", require("./routes/api/pets"));
+app.use("/api/vets", require("./routes/api/vets"));
 
 // Protect the api routes below from anon users
 app.use(require('./config/ensureLoggedIn'))

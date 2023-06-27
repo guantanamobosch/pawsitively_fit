@@ -8,10 +8,11 @@ import { generateAssessment } from '../../Utilities/ai-utilities/ai-api'
 
 export default function Assessment() {
   const [currentPage, setCurrentPage] = useState(1)
-  const [currentSymptom, setCurrentSymptom] = useState()
+  const [aiResponse, setAiResponse] = useState(null)
   const [beginTest, setBeginTest] = useState(false)
   const [finishTest, setFinishTest] = useState(false)
   const [selectedPet, setSelectedPet] = useState(null)
+  const [progress, setProgress] = useState(0)
   const [currentSymptomIndex, setCurrentSymptomIndex] = useState(0)
   const [selectedPetCount, setSelectedPetCount] = useState(0) // Track the count of selected pets
   const [loading, setLoading] = useState(false)
@@ -20,21 +21,30 @@ export default function Assessment() {
 
   // Function to handle navigation to the next page
   function goToNextPage() {
-    if (currentPage === 4) {
-      setCurrentSymptomIndex(0);
-      setCurrentPage((prevPage) => prevPage + 1);
-      navigate(`/assessment/${currentPage + 1}`);
-    } else {
-      setCurrentPage((prevPage) => prevPage + 1);
-      navigate(`/assessment/${currentPage + 1}`);
+    if (currentPage === 5) {
+      setCurrentPage((prevPage) => prevPage + 1)
+      return
     }
+
+    setCurrentPage((prevPage) => prevPage + 1)
+
+    if (currentPage === 3) {
+      setCurrentSymptomIndex(0)
+      setProgress(75)
+    } else if (currentPage === 4) {
+      setProgress(100)
+    } else {
+      setProgress((prevProgress) => prevProgress + 25)
+    }
+
+    navigate(`/assessment/${currentPage + 1}`)
   }
 
   // Function to handle navigation to the previous page
   function goToPreviousPage() {
     if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
-      navigate(`/assessment/${currentPage - 1}`);
+      setCurrentPage((prevPage) => prevPage - 1)
+      navigate(`/assessment/${currentPage - 1}`)
     }
   }
 
@@ -47,7 +57,8 @@ export default function Assessment() {
   async function getAssessment() {
     setLoading(true)
     const assessment = await generateAssessment(selectedPet, symptoms)
-    console.log(assessment)
+    console.log(assessment.data.choices[0].text)
+    setAiResponse(assessment.data.choices[0].text)
     setLoading(false)
     // Further process the assessment as needed
   }
@@ -58,12 +69,16 @@ export default function Assessment() {
       {finishTest ? (
         /* when test is finished and results are listing, show "Report" */
         <>
-          <h3>Report</h3>
+          <h3 className="pageTitle">Report</h3>
         </>
-      ) : /* if test has not begun, show assessment intro */
-      beginTest ? (
+      ) : (
+        ''
+      )}
+
+      {/* /* if test has not begun, show assessment intro */}
+      {beginTest ? (
         <>
-          <ProgressBar />
+          <ProgressBar progress={progress} />
           <AssessmentBox
             selectedPet={selectedPet}
             setSelectedPet={setSelectedPet}
@@ -72,6 +87,7 @@ export default function Assessment() {
             currentSymptomIndex={currentSymptomIndex}
             setSymptoms={setSymptoms}
             loading={loading}
+            aiResponse={aiResponse}
           />
           <PageNav
             currentPage={currentPage}
@@ -84,6 +100,7 @@ export default function Assessment() {
             setCurrentSymptomIndex={setCurrentSymptomIndex}
             currentSymptomIndex={currentSymptomIndex}
             symptoms={symptoms}
+            setFinishTest={setFinishTest}
           />
           {/* This is the pagination footer that navigates the user to the next page of the assessment */}
           {/* navigating back and forth must also trigger movement on the completion bar */}

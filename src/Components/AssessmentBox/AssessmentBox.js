@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './AssessmentBox.css'
 import MiniPetCard from '../MiniPetCard/MiniPetCard'
-import SearchBar from '../SearchBar/SearchBar'
+import SymptomForm from '../SymptomForm/SymptomForm'
 import SymptomCard from '../SymptomCard/SymptomCard'
 import SpecificSymptom from '../SpecificSymptom/SpecificSymptom'
 import ResultsList from '../ResultsList/ResultsList'
@@ -15,9 +15,11 @@ export default function AssessmentBox({
   symptoms,
   setSymptoms,
   loading,
-  currentSymptomIndex
+  currentSymptomIndex,
+  aiResponse
 }) {
   const [pets, setPets] = useState([])
+  const [symptomDurations, setSymptomDurations] = useState([]);
 
   const page = useLocation().pathname
 
@@ -50,7 +52,15 @@ export default function AssessmentBox({
   // Function to handle submitting the symptom
   function handleSymptomSubmit(symptom) {
     setSymptoms([...symptoms, symptom])
+    setSymptomDurations([...symptomDurations, '']); // Initialize the duration state for the new symptom
   }
+
+    // Function to handle updating the duration state for a specific symptom
+    function handleDurationChange(index, duration) {
+      const updatedDurations = [...symptomDurations];
+      updatedDurations[index] = duration;
+      setSymptomDurations(updatedDurations);
+    }
 
   console.log(selectedPet)
 
@@ -94,7 +104,7 @@ export default function AssessmentBox({
       {page === '/assessment/3' && (
         <>
           <p>What symptoms is {selectedPet.name} experiencing?</p>
-          <SearchBar onSymptomSubmit={handleSymptomSubmit} />
+          <SymptomForm onSymptomSubmit={handleSymptomSubmit} />
           {symptoms.map((symptom, index) => (
             <SymptomCard symptom={symptom} key={index} />
           ))}
@@ -107,6 +117,8 @@ export default function AssessmentBox({
             <SpecificSymptom
               selectedPet={selectedPet}
               symptom={symptoms[currentSymptomIndex]}
+              duration={symptomDurations[currentSymptomIndex]}
+              onDurationChange={(duration) => handleDurationChange(currentSymptomIndex, duration)}
             />
         </>
       )}
@@ -131,7 +143,7 @@ export default function AssessmentBox({
         ) : (
           <>
             <p>{selectedPet.name}</p>
-            <ResultsList />
+            <ResultsList aiResponse={aiResponse} />
           </>
         ))}
     </div>

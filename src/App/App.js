@@ -30,7 +30,6 @@ export default function App() {
             {user ? (
                 <>
                     <Navbar />
-
                     <Routes>
                         {/* Establishing routes */}
                         <Route path="/dashboard" element={<Dashboard />} />
