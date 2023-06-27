@@ -1,8 +1,10 @@
 import React from 'react'
 import './SymptomCard.css'
 
-export default function SymptomsCard() {
+export default function SymptomCard({ symptom }) {
   return (
-    <div>SymptomsCard</div>
+    <div>
+      <p>{symptom}</p>
+    </div>
   )
 }

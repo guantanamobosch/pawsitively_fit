@@ -1,0 +1,8 @@
+.selected {
+  border: 3px solid black;
+}
+
+.unselected {
+  border: 3px solid transparent;
+}
+
