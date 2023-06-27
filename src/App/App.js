@@ -8,6 +8,7 @@ import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
 
 import Appointments from "../Pages/Appointments/Appointments";
+import Assessment from "../Pages/Assessment/Assessment";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Messages from "../Pages/Messages/Messages";
 import Pets from "../Pages/Pets/Pets";
@@ -38,6 +39,7 @@ export default function App() {
                             element={<Appointments />}
                         />
                         <Route path="/messages" element={<Messages />} />
+                        <Route path="/assessment/*" element={<Assessment user={user} />} />
                         <Route path="/pets" element={<Pets user={user} />} />
                         <Route path="/providers" element={<Providers />} />
                         <Route

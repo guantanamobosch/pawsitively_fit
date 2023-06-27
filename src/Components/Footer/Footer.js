@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <body>
-      <footer class="footer"></footer>
+      <footer className="footer"></footer>
     </body>
   )
 }
