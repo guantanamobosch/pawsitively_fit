@@ -1,14 +1,14 @@
-import { json } from "react-router-dom";
-import { sendRequest } from "../send-request";
-const breedListUrl = "https://dog.ceo/api/breeds/list/all";
+import { json } from 'react-router-dom'
+import sendRequest from '../send-request'
+const breedListUrl = 'https://dog.ceo/api/breeds/list/all'
+const BASE_URL = '/api/pets'
 
 export async function getBreedList() {
     console.log(
         "📍 getBreedList() func called from src/utilities/dogs-utilities/dogs-api"
     );
-    const parsedBreedList = await sendRequest(breedListUrl);
-    const breedsObject = parsedBreedList.message;
-    // console.log(parsedBreedList);
+    const breedsObjectRequest = await sendRequest("/api/dogs/get-breed-list");
+    const breedsObject = breedsObjectRequest.message;
     // console.log(breedsObject);
     const breedList = [];
 
@@ -41,4 +41,43 @@ export async function getBreedList() {
     // console.log(breedList);
 
     return breedList.sort();
+}
+
+export async function getBreedPhoto(breedName) {
+    console.log(
+        "📍 getBreedPhoto func called from src/utilities/dogs-utilities/dogs-api"
+    );
+
+    const breedPhotoRequest = await sendRequest(
+        "/api/dogs/get-breed-photo",
+        "POST",
+        { name: breedName }
+    );
+    const breedPhoto = breedPhotoRequest.message;
+    return breedPhoto;
+}
+
+// create pet
+export function createPet(petData) {
+  return sendRequest(BASE_URL, 'POST', petData)
+}
+
+// index all pets
+export function indexPets() {
+  return sendRequest(BASE_URL, 'GET')
+}
+
+// find specific pet by id
+export function findPetById(petId) {
+  return sendRequest(BASE_URL + `/${petId}`, 'GET')
+}
+
+// update pet info
+export function updatePet(petId, petData) {
+  return sendRequest(BASE_URL + `/update/${petId}`, 'PATCH', petData)
+}
+
+// delete pet
+export function deletePet(petId) {
+  return sendRequest(BASE_URL + `/${petId}`, 'DELETE')
 }

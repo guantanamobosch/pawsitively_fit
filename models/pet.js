@@ -11,20 +11,24 @@ const petSchema = new Schema ({
         type: String,
         required: true
     },
-    photo: {
-        type: String
-    },
-    breed: {
+    breed: [{
         type: String,
+        required: true
+    }],
+    age: {
+        type: Number,
+        required: true
+    },
+    birthDate: {
+        type: Date,
         required: true
     },
     weight: {
         type: Number,
         required: true,
     },
-    age: {
-        type: Number,
-        required: true
+    photo: {
+        type: String
     },
     activity: {
         type: String,
@@ -35,12 +39,12 @@ const petSchema = new Schema ({
     medications: [{
         type: String
     }],
-    medicalhistory: [{
+    medicalHistory: [{
         type: String
     }],
     vet: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Vet"       
+        ref: "Vet"
     }],
 },{
     timestamps: true

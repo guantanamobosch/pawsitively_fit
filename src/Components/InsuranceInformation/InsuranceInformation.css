@@ -1,0 +1,70 @@
+.insurance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .insurance-form,
+  .insurance-card {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+  
+  .insurance-form form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1px;
+  }
+  
+  .insurance-form div {
+    margin-bottom: 10px;
+  }
+  
+  .insurance-form label {
+    font-weight: bold;
+  }
+  
+  .insurance-form input[type='text'],
+  .insurance-form input[type='number'] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .insurance-form button[type='submit'] {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .insurance-form button[type='submit']:hover {
+    background-color: #0056b3;
+  }
+  
+  .insurance-card p {
+    margin: 5px 0;
+  }
+  
+  @media (max-width: 767px) {
+    .insurance-container {
+      flex-direction: column;
+    }
+    
+    .insurance-form,
+    .insurance-card {
+      margin: 20px 0;
+    }
+  }
+  

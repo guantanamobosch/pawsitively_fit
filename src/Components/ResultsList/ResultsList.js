@@ -1,12 +1,11 @@
 import React from 'react'
 import './ResultsList.css'
-import MiniPetCard from '../MiniPetCard/MiniPetCard'
 import ResultsListItem from '../ResultsListItem/ResultsListItem'
 
-export default function ResultsList() {
+export default function ResultsList({aiResponse}) {
   return (
     <div>
-      <MiniPetCard />
+      <p>{aiResponse}</p>
       <ResultsListItem />
     </div>
   )
