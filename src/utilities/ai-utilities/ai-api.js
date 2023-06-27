@@ -1,10 +1,10 @@
 export async function generateAssessment(selectedPet, symptoms) {
-  const prompt = `Assessing ${selectedPet.name}'s situation...\n\n`
-  + `Pet information:\n`
-  + `- Breed: ${selectedPet.breed}\n`
-  + `- Age: ${selectedPet.age}\n`
-  + `- Symptoms: ${symptoms.join(', ')}\n\n`
-  + `Please provide an assessment and possible conditions that could be causing these symptoms.`;
+  const symptomList = symptoms.join(', ');
+  const prompt = `Assessing ${selectedPet.name}'s situation...\n\n` +
+    `Pet information:\n` +
+    `- Breed: ${selectedPet.breed}\n` +
+    `- Age: ${selectedPet.age}\n` +
+    `- Symptoms: ${symptomList}\n\n`;
 
   const { Configuration, OpenAIApi } = require("openai");
   const configuration = new Configuration({
@@ -14,11 +14,11 @@ export async function generateAssessment(selectedPet, symptoms) {
   const response = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: prompt,
-    max_tokens: 7,
-    temperature: 0,
+    max_tokens: 100, // Adjust the value as needed
+    temperature: 0.7, // Adjust the value as needed
   });
 
-  console.log(response)
+  console.log(response);
 
   return response;
 }

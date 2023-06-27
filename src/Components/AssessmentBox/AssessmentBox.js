@@ -15,7 +15,8 @@ export default function AssessmentBox({
   symptoms,
   setSymptoms,
   loading,
-  currentSymptomIndex
+  currentSymptomIndex,
+  aiResponse
 }) {
   const [pets, setPets] = useState([])
 
@@ -131,7 +132,7 @@ export default function AssessmentBox({
         ) : (
           <>
             <p>{selectedPet.name}</p>
-            <ResultsList />
+            <ResultsList aiResponse={aiResponse} />
           </>
         ))}
     </div>

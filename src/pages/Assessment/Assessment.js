@@ -8,7 +8,7 @@ import { generateAssessment } from '../../Utilities/ai-utilities/ai-api'
 
 export default function Assessment() {
   const [currentPage, setCurrentPage] = useState(1)
-  const [currentSymptom, setCurrentSymptom] = useState()
+  const [aiResponse, setAiResponse] = useState(null)
   const [beginTest, setBeginTest] = useState(false)
   const [finishTest, setFinishTest] = useState(false)
   const [selectedPet, setSelectedPet] = useState(null)
@@ -47,7 +47,8 @@ export default function Assessment() {
   async function getAssessment() {
     setLoading(true)
     const assessment = await generateAssessment(selectedPet, symptoms)
-    console.log(assessment)
+    console.log(assessment.data.choices[0].text)
+    setAiResponse(assessment.data.choices[0].text)
     setLoading(false)
     // Further process the assessment as needed
   }
@@ -72,6 +73,7 @@ export default function Assessment() {
             currentSymptomIndex={currentSymptomIndex}
             setSymptoms={setSymptoms}
             loading={loading}
+            aiResponse={aiResponse}
           />
           <PageNav
             currentPage={currentPage}
