@@ -3,6 +3,7 @@ import "./DogBreedGuide.css";
 import { Link } from "react-router-dom";
 import { getBreedList } from "../../../utilities/dogs-utilities/dogs-api";
 import BreedNameAlphabetScroller from "./BreedNameAlphabetScroller/BreedNameAlphabetScroller";
+import BreedBreadcrumbs from "./BreedBreadcrumbs/BreedBreadcrumbs";
 
 export default function DogBreedGuide() {
     const [dogList, setDogList] = useState([]);
@@ -29,6 +30,7 @@ export default function DogBreedGuide() {
 
     return (
         <>
+            <BreedBreadcrumbs />
             <BreedNameAlphabetScroller setSelectedLetter={setSelectedLetter} />
             {Array.isArray(dogList)
                 ? dogList.map((dog, index) => {
