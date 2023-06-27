@@ -45,8 +45,9 @@ export default function BillingSummary() {
         </div>
       ) : (
         <div className="billing-form">
-          <h3>Billing Summary</h3>
+    
           <form onSubmit={handleSubmit}>
+          <h3>Billing Summary</h3>
             <div>
               <label htmlFor="vet_service">Veterinary Office:</label>
               <input type="text" id="vet_service" name="vet_service" required />

@@ -22,6 +22,7 @@ export default function Settings({ user, setUser }) {
       <Dropdown />
       <SettingsCard />
       <BillingSummary />
+      <InsuranceInformation />
       
     </div>
   );
