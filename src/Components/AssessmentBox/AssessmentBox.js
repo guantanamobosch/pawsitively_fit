@@ -19,6 +19,7 @@ export default function AssessmentBox({
   aiResponse
 }) {
   const [pets, setPets] = useState([])
+  const [symptomDurations, setSymptomDurations] = useState([]);
 
   const page = useLocation().pathname
 
@@ -51,7 +52,15 @@ export default function AssessmentBox({
   // Function to handle submitting the symptom
   function handleSymptomSubmit(symptom) {
     setSymptoms([...symptoms, symptom])
+    setSymptomDurations([...symptomDurations, '']); // Initialize the duration state for the new symptom
   }
+
+    // Function to handle updating the duration state for a specific symptom
+    function handleDurationChange(index, duration) {
+      const updatedDurations = [...symptomDurations];
+      updatedDurations[index] = duration;
+      setSymptomDurations(updatedDurations);
+    }
 
   console.log(selectedPet)
 
@@ -108,6 +117,8 @@ export default function AssessmentBox({
             <SpecificSymptom
               selectedPet={selectedPet}
               symptom={symptoms[currentSymptomIndex]}
+              duration={symptomDurations[currentSymptomIndex]}
+              onDurationChange={(duration) => handleDurationChange(currentSymptomIndex, duration)}
             />
         </>
       )}

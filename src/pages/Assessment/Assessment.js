@@ -12,6 +12,7 @@ export default function Assessment() {
   const [beginTest, setBeginTest] = useState(false)
   const [finishTest, setFinishTest] = useState(false)
   const [selectedPet, setSelectedPet] = useState(null)
+  const [progress, setProgress] = useState(0)
   const [currentSymptomIndex, setCurrentSymptomIndex] = useState(0)
   const [selectedPetCount, setSelectedPetCount] = useState(0) // Track the count of selected pets
   const [loading, setLoading] = useState(false)
@@ -20,21 +21,30 @@ export default function Assessment() {
 
   // Function to handle navigation to the next page
   function goToNextPage() {
-    if (currentPage === 4) {
-      setCurrentSymptomIndex(0);
-      setCurrentPage((prevPage) => prevPage + 1);
-      navigate(`/assessment/${currentPage + 1}`);
-    } else {
-      setCurrentPage((prevPage) => prevPage + 1);
-      navigate(`/assessment/${currentPage + 1}`);
+    if (currentPage === 5) {
+      setCurrentPage((prevPage) => prevPage + 1)
+      return
     }
+
+    setCurrentPage((prevPage) => prevPage + 1)
+
+    if (currentPage === 3) {
+      setCurrentSymptomIndex(0)
+      setProgress(75)
+    } else if (currentPage === 4) {
+      setProgress(100)
+    } else {
+      setProgress((prevProgress) => prevProgress + 25)
+    }
+
+    navigate(`/assessment/${currentPage + 1}`)
   }
 
   // Function to handle navigation to the previous page
   function goToPreviousPage() {
     if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
-      navigate(`/assessment/${currentPage - 1}`);
+      setCurrentPage((prevPage) => prevPage - 1)
+      navigate(`/assessment/${currentPage - 1}`)
     }
   }
 
@@ -59,12 +69,16 @@ export default function Assessment() {
       {finishTest ? (
         /* when test is finished and results are listing, show "Report" */
         <>
-          <h3>Report</h3>
+          <h3 className="pageTitle">Report</h3>
         </>
-      ) : /* if test has not begun, show assessment intro */
-      beginTest ? (
+      ) : (
+        ''
+      )}
+
+      {/* /* if test has not begun, show assessment intro */}
+      {beginTest ? (
         <>
-          <ProgressBar />
+          <ProgressBar progress={progress} />
           <AssessmentBox
             selectedPet={selectedPet}
             setSelectedPet={setSelectedPet}
@@ -86,6 +100,7 @@ export default function Assessment() {
             setCurrentSymptomIndex={setCurrentSymptomIndex}
             currentSymptomIndex={currentSymptomIndex}
             symptoms={symptoms}
+            setFinishTest={setFinishTest}
           />
           {/* This is the pagination footer that navigates the user to the next page of the assessment */}
           {/* navigating back and forth must also trigger movement on the completion bar */}
