@@ -1,11 +1,14 @@
-.dropdown {
-    display: inline-block;
+
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
   }
   
-  .dropdown select {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
+  select {
+    padding: 10px;
+    font-size: 16px;
     border-radius: 4px;
   }
   

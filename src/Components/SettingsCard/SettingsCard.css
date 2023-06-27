@@ -1,11 +1,10 @@
-
 .card-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     padding: 20px;
     box-sizing: border-box;
+    min-height: calc(100vh - 40px); /* Adjust the value as per your requirement */
   }
   
   .card {
@@ -16,8 +15,9 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 0 auto; /* Center the card horizontally */
-    margin-bottom: 20px; /* Add margin at the bottom for spacing */
+    margin-bottom: 200px; /* Add margin at the bottom for spacing */
   }
+  
   .card h3 {
     margin-bottom: 10px;
   }
@@ -28,7 +28,7 @@
   }
   
   .card form div {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   
   .card label {
@@ -60,13 +60,17 @@
     margin: 5px 0;
   }
   
-
   @media (max-width: 767px) {
     .card-container {
-      height: auto; /* Remove fixed height for mobile screens */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
   
     .card {
-      margin: 20px; /* Add margin on all sides for mobile screens */
+      margin: 20px 0 150px 0px; /* Add vertical margin for mobile screens */
     }
   }
+  

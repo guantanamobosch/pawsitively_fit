@@ -3,6 +3,12 @@ import './SettingsCard.css';
 
 export default function SettingsCard() {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    address: '',
+    phone: '',
+    email: ''
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,11 +19,13 @@ export default function SettingsCard() {
     const phone = event.target.phone.value;
     const email = event.target.email.value;
 
-    // Display submitted information
-    document.getElementById('nameDisplay').textContent = `Name: ${name}`;
-    document.getElementById('addressDisplay').textContent = `Address: ${address}`;
-    document.getElementById('phoneDisplay').textContent = `Phone: ${phone}`;
-    document.getElementById('emailDisplay').textContent = `Email: ${email}`;
+    // Update form data state
+    setFormData({
+      name,
+      address,
+      phone,
+      email
+    });
 
     // Set submitted flag to true
     setSubmitted(true);
@@ -28,10 +36,10 @@ export default function SettingsCard() {
       {submitted ? (
         <div className="card">
           <h3>Submitted Information</h3>
-          <p id="nameDisplay"></p>
-          <p id="addressDisplay"></p>
-          <p id="phoneDisplay"></p>
-          <p id="emailDisplay"></p>
+          <p>Name: {formData.name}</p>
+          <p>Address: {formData.address}</p>
+          <p>Phone: {formData.phone}</p>
+          <p>Email: {formData.email}</p>
         </div>
       ) : (
         <div className="card">
