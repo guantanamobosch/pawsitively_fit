@@ -43,9 +43,11 @@ export default function Resources() {
                                 alignItems: "center",
                             }}
                         >
-                            <Typography variant="h5">
-                                Symptom Assessment
-                            </Typography>
+                            <Link to="/assessment">
+                                <Typography variant="h5">
+                                    Symptom Assessment
+                                </Typography>
+                            </Link>
                         </Card>
                     </Grid>
                     <Grid
