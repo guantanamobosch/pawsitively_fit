@@ -4,6 +4,7 @@ import * as vetServices from '../../utilities/vets-utilities/vets-services'
 import * as petServices from '../../utilities/dogs-utilities/dogs-services'
 
 export default function VetForm({ user, setVets }) {
+
   const [pets, setPets] = useState([])
 
   async function fetchPets() {
@@ -58,8 +59,9 @@ export default function VetForm({ user, setVets }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='formContainer'>
+      <h3>Add New Vet</h3>
+      <form onSubmit={handleSubmit} className='form'>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -105,7 +107,7 @@ export default function VetForm({ user, setVets }) {
           required
         />
 
-        <button type="submit">Add Vet</button>
+        <button type="submit" className='formSubmit'>ADD VET</button>
       </form>
     </div>
   )

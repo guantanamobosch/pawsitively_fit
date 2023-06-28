@@ -8,6 +8,8 @@ import * as vetServices from '../../utilities/vets-utilities/vets-services'
 export default function Providers({ user }) {
   const [vets, setVets] = useState([])
   const [showVetForm, setShowVetForm] = useState(false)
+  const [searchResults, setSearchResults] = useState([])
+  const [showModal, setShowModal] = useState(false)
 
   async function fetchVets() {
     try {
@@ -23,45 +25,80 @@ export default function Providers({ user }) {
   }, [])
 
   async function grabImageUrl() {
-  return fetch('https://api.api-ninjas.com/v1/randomimage?category=city', {
-    method: 'GET',
-    headers: {
-      'X-Api-Key': `${process.env.REACT_APP_API_NINJAS_KEY}`,
-      Accept: 'image/jpg',
-    },
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.blob();
-      } else {
-        throw new Error('Error occurred');
-      }
+    return fetch('https://api.api-ninjas.com/v1/randomimage?category=city', {
+      method: 'GET',
+      headers: {
+        'X-Api-Key': `${process.env.REACT_APP_API_NINJAS_KEY}`,
+        Accept: 'image/jpg',
+      },
     })
-    .then((blob) => {
-      const imageUrl = URL.createObjectURL(blob);
-      return imageUrl;
+      .then((response) => {
+        if (response.ok) {
+          return response.blob()
+        } else {
+          throw new Error('Error occurred')
+        }
+      })
+      .then((blob) => {
+        const imageUrl = URL.createObjectURL(blob)
+        return imageUrl
+      })
+      .catch((error) => {
+        console.error('Error occurred:', error)
+      })
+  }
+
+  // searching for vets
+  function searchVets(query) {
+    const queryLowerCase = query.toLowerCase().trim()
+
+    const filteredVets = vets.filter((vet) => {
+      const vetName = vet.name.toLowerCase()
+      return vetName.includes(queryLowerCase)
     })
-    .catch((error) => {
-      console.error('Error occurred:', error);
-    });
-}
+
+    setSearchResults(filteredVets)
+  }
 
   return (
     <div>
-      <h3 className="PageTitle">My Providers</h3>
-      <SearchBar />
+      <div className="PageTitleContainer">
+        <h3 className="PageTitle">My Vets</h3>
 
-      {showVetForm ? (
-        <>
-          <button onClick={() => setShowVetForm(false)}>Close Form</button>
-          <VetForm setVets={setVets} user={user} />
-        </>
-      ) : (
-        <button onClick={() => setShowVetForm(true)}>Show Form</button>
-      )}
-      {vets.map((vet, index) => (
-        <ProviderCard key={index} vet={vet} imageUrl={grabImageUrl()} />
-      ))}
+        {showModal ? (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={() => setShowModal(false)}>
+                &times;
+              </span>
+              <VetForm setVets={setVets} user={user} />
+            </div>
+          </div>
+        ) : (
+          <p onClick={() => setShowModal(true)} className="clickable">
+            <u>Add New Vet</u>
+          </p>
+        )}
+      </div>
+
+      <SearchBar onSearch={searchVets} />
+      <div className="vetCardContainer">
+        {searchResults.length > 0 ? (
+          searchResults.map((vet, index) => (
+            <ProviderCard key={index} vet={vet} imageUrl={grabImageUrl()} />
+          ))
+        ) : (
+          <>
+            {searchResults.length === 0 ? (
+              <p>No vets found.</p>
+            ) : (
+              vets.map((vet, index) => (
+                <ProviderCard key={index} vet={vet} imageUrl={grabImageUrl()} />
+              ))
+            )}
+          </>
+        )}
+      </div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ export async function generateAssessment(selectedPet, symptoms) {
   const response = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: prompt,
-    max_tokens: 100, // Adjust the value as needed
+    max_tokens: 250, // Adjust the value as needed
     temperature: 0.7, // Adjust the value as needed
   });
 

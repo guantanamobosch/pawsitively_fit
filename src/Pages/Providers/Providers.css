@@ -1,0 +1,11 @@
+.PageTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0vh 2vh;
+}
+
+.vetCardContainer {
+  display: flex;
+  justify-content: center;
+}
