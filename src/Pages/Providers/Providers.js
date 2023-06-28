@@ -22,6 +22,30 @@ export default function Providers({ user }) {
     fetchVets()
   }, [])
 
+  async function grabImageUrl() {
+  return fetch('https://api.api-ninjas.com/v1/randomimage?category=city', {
+    method: 'GET',
+    headers: {
+      'X-Api-Key': `${process.env.REACT_APP_API_NINJAS_KEY}`,
+      Accept: 'image/jpg',
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.blob();
+      } else {
+        throw new Error('Error occurred');
+      }
+    })
+    .then((blob) => {
+      const imageUrl = URL.createObjectURL(blob);
+      return imageUrl;
+    })
+    .catch((error) => {
+      console.error('Error occurred:', error);
+    });
+}
+
   return (
     <div>
       <h3 className="PageTitle">My Providers</h3>
@@ -35,8 +59,8 @@ export default function Providers({ user }) {
       ) : (
         <button onClick={() => setShowVetForm(true)}>Show Form</button>
       )}
-      {vets.map((vet) => (
-        <ProviderCard key={vet._id} vet={vet} />
+      {vets.map((vet, index) => (
+        <ProviderCard key={index} vet={vet} imageUrl={grabImageUrl()} />
       ))}
     </div>
   )
