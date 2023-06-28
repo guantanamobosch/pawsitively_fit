@@ -6,7 +6,6 @@ import PageNav from "../../Components/PageNav/PageNav";
 import { Link, useNavigate } from "react-router-dom";
 import { generateAssessment } from "../../utilities/ai-utilities/ai-api";
 import TimerIcon from "@mui/icons-material/Timer";
-import Button from "@mui/material/Button";
 
 export default function Assessment() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -118,15 +117,15 @@ export default function Assessment() {
                         symptoms and assess any possible conditions.
                     </p>
                     <Link to="/assessment/1">
-                        <Button
-                            variant="contained"
+                        <button
+                            className="formSubmit"
                             onClick={() => {
                                 setBeginTest(true);
                                 setCurrentPage(1);
                             }}
                         >
                             Start Assessment
-                        </Button>
+                        </button>
                     </Link>
                 </div>
             )}
