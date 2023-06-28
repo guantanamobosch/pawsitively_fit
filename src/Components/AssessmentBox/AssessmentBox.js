@@ -16,10 +16,10 @@ export default function AssessmentBox({
   setSymptoms,
   loading,
   currentSymptomIndex,
-  aiResponse
+  aiResponse,
 }) {
   const [pets, setPets] = useState([])
-  const [symptomDurations, setSymptomDurations] = useState([]);
+  const [symptomDurations, setSymptomDurations] = useState([])
 
   const page = useLocation().pathname
 
@@ -52,20 +52,27 @@ export default function AssessmentBox({
   // Function to handle submitting the symptom
   function handleSymptomSubmit(symptom) {
     setSymptoms([...symptoms, symptom])
-    setSymptomDurations([...symptomDurations, '']); // Initialize the duration state for the new symptom
+    setSymptomDurations([...symptomDurations, '']) // Initialize the duration state for the new symptom
   }
 
-    // Function to handle updating the duration state for a specific symptom
-    function handleDurationChange(index, duration) {
-      const updatedDurations = [...symptomDurations];
-      updatedDurations[index] = duration;
-      setSymptomDurations(updatedDurations);
-    }
+  // Function to handle removing a symptom from the symptoms array
+  function handleSymptomRemove(index) {
+    const updatedSymptoms = [...symptoms]
+    updatedSymptoms.splice(index, 1)
+    setSymptoms(updatedSymptoms)
+  }
+
+  // Function to handle updating the duration state for a specific symptom
+  function handleDurationChange(index, duration) {
+    const updatedDurations = [...symptomDurations]
+    updatedDurations[index] = duration
+    setSymptomDurations(updatedDurations)
+  }
 
   console.log(selectedPet)
 
   return (
-    <div>
+    <div className="AssessmentBox">
       {/* Assessment Page 1 */}
       {page === '/assessment/1' && (
         <>
@@ -84,42 +91,53 @@ export default function AssessmentBox({
       {page === '/assessment/2' && (
         <>
           <p>Which pet are you assessing?</p>
-          <p>
-            <i>note: you can only assess one pet at a time</i>
-          </p>
 
-          {pets.map((pet, index) => (
-            <MiniPetCard
-              pet={pet}
-              key={index}
-              selectedPet={selectedPet}
-              selectPet={selectPet}
-              deselectPet={deselectPet}
-            />
-          ))}
-          <button>I'm assessing another dog</button>
+          <div className="MiniPetCardContainer">
+            {pets.map((pet, index) => (
+              <MiniPetCard
+                pet={pet}
+                key={index}
+                selectedPet={selectedPet}
+                selectPet={selectPet}
+                deselectPet={deselectPet}
+              />
+            ))}
+            <button>I'm assessing another dog</button>
+          </div>
         </>
       )}
       {/* Assessment Page 3 */}
       {page === '/assessment/3' && (
         <>
-          <p>What symptoms is {selectedPet.name} experiencing?</p>
-          <SymptomForm onSymptomSubmit={handleSymptomSubmit} />
-          {symptoms.map((symptom, index) => (
-            <SymptomCard symptom={symptom} key={index} />
-          ))}
-          {/* SymptomCard will populate as user enters  */}
+          <p>
+            What symptoms is <i>{selectedPet.name}</i> experiencing?
+          </p>
+          <SymptomForm
+            onSymptomSubmit={handleSymptomSubmit}
+          />
+          <div className="SymptomCardContainer">
+            {/* SymptomCard will populate as user enters  */}
+            {symptoms.map((symptom, index) => (
+              <SymptomCard
+                symptom={symptom}
+                key={index}
+                onSymptomRemove={handleSymptomRemove}
+              />
+            ))}
+          </div>
         </>
       )}
       {/* Assessment Page 4 */}
       {page === '/assessment/4' && (
         <>
-            <SpecificSymptom
-              selectedPet={selectedPet}
-              symptom={symptoms[currentSymptomIndex]}
-              duration={symptomDurations[currentSymptomIndex]}
-              onDurationChange={(duration) => handleDurationChange(currentSymptomIndex, duration)}
-            />
+          <SpecificSymptom
+            selectedPet={selectedPet}
+            symptom={symptoms[currentSymptomIndex]}
+            duration={symptomDurations[currentSymptomIndex]}
+            onDurationChange={(duration) =>
+              handleDurationChange(currentSymptomIndex, duration)
+            }
+          />
         </>
       )}
       {/* Assessment Page 5 */}

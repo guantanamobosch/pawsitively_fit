@@ -1,21 +1,37 @@
 .petCard {
-  background-color: #E6E6E6;
-  width: 50%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  background-color: white;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2vh 0vh;
+  padding: 2vh;
+  column-gap: 2vh;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+}
+
+.petCard p, .petCard h4 {
+  margin-block-start: 0px;
+  margin-block-end: 0px
 }
 
 .petPhotoContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  height: 20vh;
 }
 
 .petPhoto {
-  width: 25vh;
+  width: 20vh;
+  height: 15vh;
+}
+
+.petDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start;
+  width: 15vh;
   height: 20vh;
 }

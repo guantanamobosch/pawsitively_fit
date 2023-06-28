@@ -19,8 +19,19 @@ export default function MiniPetCard({
   }
 
   return (
-    <div className={isSelected ? 'selected' : 'unselected'} onClick={handleClick}>
-      <p>{pet.name}</p>
+    <div
+      className={isSelected ? 'MiniPetCard selected' : 'MiniPetCard unselected'}
+      onClick={handleClick}
+    >
+      <img src={pet.photo} alt={pet.name} className="petBubblePhoto" />
+      <div>
+        <p style={{'fontSize': '2vh'}}>
+          <b>{pet.name}</b>
+        </p>
+        <p style={{'fontSize': '1.75vh'}}>
+          {pet.breed.length > 1 ? 'Mixed' : pet.breed}, {pet.age} years
+        </p>
+      </div>
     </div>
   )
 }
