@@ -1,0 +1,26 @@
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1vh;
+}
+
+.searchBar {
+  background-color: #C7C7C7;
+  border: 5px solid transparent;
+  border-radius: 20px;
+  font-style: italic;
+  height: 1vh;
+  width: 50%;
+  padding: 10px 10px;
+}
+
+.searchBar::placeholder {
+  color: white;
+}
+
+.searchSubmit {
+  border-radius: 20px;
+  height: 5vh;
+  padding: 10px 10px;
+}

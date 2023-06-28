@@ -36,7 +36,7 @@ const [submitted, setSubmitted] = useState(false);
   };
   
   return (
-    <>
+    <div className='insurance-page'>
       {submitted ? (
         <div className="insurance-card">
           <h3>Insurance Information</h3>
@@ -70,6 +70,6 @@ const [submitted, setSubmitted] = useState(false);
           </form>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -65,19 +65,21 @@ export default function Assessment() {
 
   return (
     <div>
-      <h3 className="pageTitle">Symptom Assessment</h3>
-      {finishTest ? (
-        /* when test is finished and results are listing, show "Report" */
-        <>
-          <h3 className="pageTitle">Report</h3>
-        </>
-      ) : (
-        ''
-      )}
+      <div className='AssessmentTitleContainer'>
+        <h3 className="pageTitle">Symptom Assessment</h3>
+        {finishTest ? (
+          /* when test is finished and results are listing, show "Report" */
+          <>
+            <h3 className="pageTitle">Report</h3>
+          </>
+        ) : (
+          ''
+        )}
+      </div>
 
       {/* /* if test has not begun, show assessment intro */}
       {beginTest ? (
-        <>
+        <div className='AssessmentContent'>
           <ProgressBar progress={progress} />
           <AssessmentBox
             selectedPet={selectedPet}
@@ -104,7 +106,7 @@ export default function Assessment() {
           />
           {/* This is the pagination footer that navigates the user to the next page of the assessment */}
           {/* navigating back and forth must also trigger movement on the completion bar */}
-        </>
+        </div>
       ) : (
         <>
           <div>

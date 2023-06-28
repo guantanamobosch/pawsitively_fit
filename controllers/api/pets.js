@@ -32,6 +32,7 @@ async function indexPets(req, res, next) {
 
 async function findPetById(req, res, next) {
   try {
+    console.log(req.params.id)
     const pet = await Pet.findById(req.params.id)
     if (!pet) return next(new Error('No pet available'))
     return res.status(200).json({ pet: pet })

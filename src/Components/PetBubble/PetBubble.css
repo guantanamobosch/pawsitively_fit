@@ -1,0 +1,38 @@
+.petBubble p {
+  margin-block-start: 0px;
+  text-align: center;
+}
+
+.petBubble img {
+  cursor: pointer;
+}
+
+.petBubblePhoto {
+  width: 5vh;
+  height: 5vh;
+  border: 3px solid #b9b9b9;
+  border-radius: 50px;
+}
+
+.petBubblePhoto:hover {
+  border-color: white;
+}
+
+.unselectedBubblePhoto {
+  width: 5vh;
+  height: 5vh;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 50px;
+  filter: blur(100);
+}
+
+.unselectedBubblePhoto:hover {
+  border-color: white;
+}
+
+.selectedBubblePhoto {
+  width: 5vh;
+  height: 5vh;
+  border: 3px solid goldenrod;
+  border-radius: 50px;
+}

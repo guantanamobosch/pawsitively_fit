@@ -1,0 +1,24 @@
+.symptomForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vh 0vh;
+  row-gap: 2vh;
+}
+
+.symptomInput {
+  background-color: #efefef;
+  color: black;
+  border: 0px;
+  padding: 1.5vh 2vh;
+  border-radius: 20px;
+  width: 90%;
+}
+
+.symptomInput::placeholder {
+  color: #7c7c7c;
+}
+
+.symptomForm .addItem {
+  align-self: center
+}
