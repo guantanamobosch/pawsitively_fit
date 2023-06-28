@@ -6,7 +6,8 @@ import PageNav from "../../Components/PageNav/PageNav";
 import { Link, useNavigate } from "react-router-dom";
 import { generateAssessment } from "../../utilities/ai-utilities/ai-api";
 import TimerIcon from "@mui/icons-material/Timer";
-import Button from "@mui/material/Button";
+import { Breadcrumbs } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export default function Assessment() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -66,70 +67,81 @@ export default function Assessment() {
     }
 
     return (
-        <div>
-            <h3 className="pageTitle">Symptom Assessment</h3>
-            {finishTest ? (
-                /* when test is finished and results are listing, show "Report" */
-                <>
-                    <h3 className="pageTitle">Report</h3>
-                </>
-            ) : (
-                ""
-            )}
+        <>
+            <Breadcrumbs>
+                <Link underline="hover" color="inherit" to="/dashboard">
+                    Home
+                </Link>
+                <Link underline="hover" color="inherit" to="/resources">
+                    Resources
+                </Link>
+                <Typography>Symptom Assessment</Typography>
+            </Breadcrumbs>
+            <div>
+                <h3 className="pageTitle">Symptom Assessment</h3>
+                {finishTest ? (
+                    /* when test is finished and results are listing, show "Report" */
+                    <>
+                        <h3 className="pageTitle">Report</h3>
+                    </>
+                ) : (
+                    ""
+                )}
 
-            {/* /* if test has not begun, show assessment intro */}
-            {beginTest ? (
-                <>
-                    <ProgressBar progress={progress} />
-                    <AssessmentBox
-                        selectedPet={selectedPet}
-                        setSelectedPet={setSelectedPet}
-                        handleSelectedPetCount={handleSelectedPetCount}
-                        symptoms={symptoms}
-                        currentSymptomIndex={currentSymptomIndex}
-                        setSymptoms={setSymptoms}
-                        loading={loading}
-                        aiResponse={aiResponse}
-                    />
-                    <PageNav
-                        currentPage={currentPage}
-                        totalPages={6}
-                        onNext={goToNextPage}
-                        onPrevious={goToPreviousPage}
-                        selectedPet={selectedPet}
-                        selectedPetCount={selectedPetCount}
-                        onGetAssessment={getAssessment}
-                        setCurrentSymptomIndex={setCurrentSymptomIndex}
-                        currentSymptomIndex={currentSymptomIndex}
-                        symptoms={symptoms}
-                        setFinishTest={setFinishTest}
-                    />
-                    {/* This is the pagination footer that navigates the user to the next page of the assessment */}
-                    {/* navigating back and forth must also trigger movement on the completion bar */}
-                </>
-            ) : (
-                <div className="Timer-And-Intro-Container">
-                    <div className="Timer-Icon-Container">
-                        <TimerIcon />
-                        <p>2-5 minutes</p>
+                {/* /* if test has not begun, show assessment intro */}
+                {beginTest ? (
+                    <>
+                        <ProgressBar progress={progress} />
+                        <AssessmentBox
+                            selectedPet={selectedPet}
+                            setSelectedPet={setSelectedPet}
+                            handleSelectedPetCount={handleSelectedPetCount}
+                            symptoms={symptoms}
+                            currentSymptomIndex={currentSymptomIndex}
+                            setSymptoms={setSymptoms}
+                            loading={loading}
+                            aiResponse={aiResponse}
+                        />
+                        <PageNav
+                            currentPage={currentPage}
+                            totalPages={6}
+                            onNext={goToNextPage}
+                            onPrevious={goToPreviousPage}
+                            selectedPet={selectedPet}
+                            selectedPetCount={selectedPetCount}
+                            onGetAssessment={getAssessment}
+                            setCurrentSymptomIndex={setCurrentSymptomIndex}
+                            currentSymptomIndex={currentSymptomIndex}
+                            symptoms={symptoms}
+                            setFinishTest={setFinishTest}
+                        />
+                        {/* This is the pagination footer that navigates the user to the next page of the assessment */}
+                        {/* navigating back and forth must also trigger movement on the completion bar */}
+                    </>
+                ) : (
+                    <div className="Timer-And-Intro-Container">
+                        <div className="Timer-Icon-Container">
+                            <TimerIcon />
+                            <p>2-5 minutes</p>
+                        </div>
+                        <p className="Assessment-Intro-Text">
+                            This guided questionnaire will ask you about your
+                            pet’s symptoms and assess any possible conditions.
+                        </p>
+                        <Link to="/assessment/1">
+                            <button
+                                className="formSubmit"
+                                onClick={() => {
+                                    setBeginTest(true);
+                                    setCurrentPage(1);
+                                }}
+                            >
+                                Start Assessment
+                            </button>
+                        </Link>
                     </div>
-                    <p className="Assessment-Intro-Text">
-                        This guided questionnaire will ask you about your pet’s
-                        symptoms and assess any possible conditions.
-                    </p>
-                    <Link to="/assessment/1">
-                        <Button
-                            variant="contained"
-                            onClick={() => {
-                                setBeginTest(true);
-                                setCurrentPage(1);
-                            }}
-                        >
-                            Start Assessment
-                        </Button>
-                    </Link>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+        </>
     );
 }
