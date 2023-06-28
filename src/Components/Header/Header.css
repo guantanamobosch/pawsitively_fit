@@ -1,6 +1,7 @@
 .header {
     width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
   }
   
   .header-navigation {
@@ -15,7 +16,7 @@
   }
   
   .header-navigation h1 {
-    margin-left: 2%;
+    margin-left: 4%;
     margin-right: auto;
     transform: scale(2);
   }
@@ -31,4 +32,6 @@
     fill: black;
   }
 
-  
+  h1 {
+    font-size: 40px;
+  }

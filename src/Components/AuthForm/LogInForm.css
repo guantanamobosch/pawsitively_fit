@@ -6,6 +6,7 @@
   
   label {
     margin-bottom: 5px;
+    font-size: 16px;
   }
   
   .error-message {
@@ -19,6 +20,7 @@
     border-radius: 5px;
     padding: 10px 20px;
     margin-top: 10px;
+    font-size: 16px;
   }
   
   .login-form-container {
