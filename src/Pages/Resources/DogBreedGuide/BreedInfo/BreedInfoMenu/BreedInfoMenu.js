@@ -7,7 +7,11 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
 const ITEM_HEIGHT = 48;
 
-export default function BreedInfoMenu({ options, setSelectedMenuOption }) {
+export default function BreedInfoMenu({
+    options,
+    setSelectedMenuOption,
+    selectedMenuOption,
+}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -52,7 +56,7 @@ export default function BreedInfoMenu({ options, setSelectedMenuOption }) {
                 {options.map((option) => (
                     <MenuItem
                         key={option}
-                        selected={option === "General Care"}
+                        selected={option === selectedMenuOption}
                         onClick={() => handleMenuSelect(option)}
                     >
                         {option}

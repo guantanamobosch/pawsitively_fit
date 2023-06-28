@@ -91,6 +91,7 @@ export default function BreedInfo() {
                 <BreedInfoMenu
                     options={options}
                     setSelectedMenuOption={setSelectedMenuOption}
+                    selectedMenuOption={selectedMenuOption}
                 />
                 {/* <img src={breedPicture} alt="This is the dog!" /> */}
             </div>
