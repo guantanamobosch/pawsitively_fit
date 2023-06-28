@@ -37,7 +37,7 @@ export default function BreedInfoMenu() {
                 aria-haspopup="true"
                 onClick={handleClick}
             >
-                <MenuIcon />
+                {open ? <MenuOpenIcon /> : <MenuIcon />}
             </IconButton>
             <Menu
                 id="long-menu"
