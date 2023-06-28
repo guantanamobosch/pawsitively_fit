@@ -3,12 +3,13 @@
     top: 20%;
     left: 0;
     right: 0;
-    transform: translateY(-50%);
+    transform: translateY(150%);
 }
 
 .alphabet-scroll-wheel {
     background-color: lightgray;
     list-style-type: none;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
