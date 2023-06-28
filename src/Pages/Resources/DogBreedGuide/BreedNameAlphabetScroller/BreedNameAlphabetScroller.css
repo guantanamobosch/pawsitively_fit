@@ -3,15 +3,17 @@
     top: 20%;
     left: 0;
     right: 0;
-    transform: translateY(150%);
+    transform: translateY(100%);
 }
 
 .alphabet-scroll-wheel {
     background-color: rgba(211, 211, 211, 0.853);
     list-style-type: none;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: space-between;
+    padding-inline-start: 0px;
+    overflow-x: scroll;
 }
 
 .alphabet-scroll-wheel-letter {
@@ -20,6 +22,7 @@
     text-decoration: underline;
     font-weight: bold;
     font-size: 1.5em;
+    margin: 10px;
 }
 
 .alphabet-scroll-wheel-letter:focus {
