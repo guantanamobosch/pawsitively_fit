@@ -5,18 +5,9 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
-const options = [
-    "General Care",
-    "Health",
-    "Feeding",
-    "Behavior & Training",
-    "Grooming",
-    "FAQs",
-];
-
 const ITEM_HEIGHT = 48;
 
-export default function BreedInfoMenu() {
+export default function BreedInfoMenu({ options, setSelectedMenuOption }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -25,6 +16,10 @@ export default function BreedInfoMenu() {
     };
     const handleClose = () => {
         setAnchorEl(null);
+    };
+    const handleMenuSelect = (option) => {
+        setSelectedMenuOption(option);
+        handleClose();
     };
 
     return (
@@ -58,7 +53,7 @@ export default function BreedInfoMenu() {
                     <MenuItem
                         key={option}
                         selected={option === "General Care"}
-                        onClick={handleClose}
+                        onClick={() => handleMenuSelect(option)}
                     >
                         {option}
                     </MenuItem>
