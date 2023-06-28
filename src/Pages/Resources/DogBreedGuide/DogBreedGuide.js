@@ -32,7 +32,6 @@ export default function DogBreedGuide() {
         <div className="Breed-Guide-Container">
             <BreedBreadcrumbs />
             <BreedNameAlphabetScroller setSelectedLetter={setSelectedLetter} />
-            <div className="Breed-Guide-Stretcher"></div>
             <div className="Dog-List-Container">
                 {Array.isArray(dogList)
                     ? dogList.map((dog, index) => {

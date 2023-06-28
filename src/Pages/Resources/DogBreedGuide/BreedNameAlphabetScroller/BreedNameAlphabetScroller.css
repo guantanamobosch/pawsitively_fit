@@ -1,19 +1,22 @@
 .Breed-Name-Alphabet-Scroller-Container {
-    position: fixed;
-    top: 20%;
-    left: 0;
-    right: 0;
-    transform: translateY(100%);
+    position: sticky;
+    top: 267px;
+    z-index: 100;
+    height: 45px;
+    margin-top: 1px solid black;
+    margin-bottom: 1px solid black;
 }
 
 .alphabet-scroll-wheel {
-    background-color: rgba(211, 211, 211, 0.853);
+    background-color: rgb(155, 155, 155);
     list-style-type: none;
     /* width: 100%; */
     display: flex;
     justify-content: space-between;
     padding-inline-start: 0px;
     overflow-x: scroll;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }
 
 .alphabet-scroll-wheel-letter {
@@ -23,9 +26,19 @@
     font-weight: bold;
     font-size: 1.5em;
     margin: 10px;
+    color: white;
 }
 
 .alphabet-scroll-wheel-letter:focus {
     outline: 2px solid black;
     text-decoration: none;
+}
+
+.alphabet-scroll-stretcher {
+    width: 100%;
+    position: sticky;
+    top: 312px;
+    z-index: 100;
+    height: 30px;
+    background-color: #EFEFEF;
 }

@@ -1,3 +1,8 @@
 .Breed-Breadcrumbs-Container {
-    background-color: rgba(211, 211, 211, 0.853);
+    position: sticky;
+    top: 172px;
+    z-index: 100;
+    height: 75px;
+    background-color: #EFEFEF;
+    padding-bottom: 20px;
 }
