@@ -7,7 +7,7 @@
 }
 
 .alphabet-scroll-wheel {
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0.853);
     list-style-type: none;
     width: 100%;
     display: flex;
@@ -18,6 +18,8 @@
     cursor: pointer;
     outline: none;
     text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 .alphabet-scroll-wheel-letter:focus {

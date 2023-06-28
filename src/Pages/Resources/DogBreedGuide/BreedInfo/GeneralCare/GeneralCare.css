@@ -1,0 +1,10 @@
+.General-Care-Container {
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: rgba(211, 211, 211, 0.253);
+}
+
+.General-Care-Container > p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

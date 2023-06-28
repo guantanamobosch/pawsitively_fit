@@ -32,9 +32,9 @@ export default function BreedInfo() {
         } else if (selectedMenuOption === options[1]) {
             return <Health />;
         } else if (selectedMenuOption === options[2]) {
-            return <Feeding />;
+            return <Feeding breedName={breedName} />;
         } else if (selectedMenuOption === options[3]) {
-            return <BehaviorAndTraining />;
+            return <BehaviorAndTraining breedName={breedName} />;
         } else if (selectedMenuOption === options[4]) {
             return <Grooming />;
         } else if (selectedMenuOption === options[5]) {
@@ -82,7 +82,7 @@ export default function BreedInfo() {
     }, []);
 
     return (
-        <>
+        <div className="Breed-Info-Container">
             <div className="Breed-Info-Header">
                 <div className="Breed-Info-Header-Text">
                     <h2>{breedName}</h2>
@@ -96,6 +96,6 @@ export default function BreedInfo() {
                 {/* <img src={breedPicture} alt="This is the dog!" /> */}
             </div>
             {MenuSelection()}
-        </>
+        </div>
     );
 }
