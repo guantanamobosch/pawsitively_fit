@@ -8,7 +8,7 @@ export default function ProviderCard({ vet, imageUrl }) {
     if (imageUrl) {
       imageUrl.then((url) => setImageSrc(url))
     }
-  }, [])
+  })
 
   return (
     <div className="vetCard">
