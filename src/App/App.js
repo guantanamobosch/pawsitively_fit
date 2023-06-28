@@ -33,7 +33,7 @@ export default function App() {
                     <Navbar />
                     <Routes>
                         {/* Establishing routes */}
-                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/dashboard" element={<Dashboard user = {user} />} />
                         <Route
                             path="/appointments"
                             element={<Appointments />}

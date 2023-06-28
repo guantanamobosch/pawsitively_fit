@@ -1,0 +1,32 @@
+/* Dashboard.css */
+
+.card-container {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .card-container1 {
+    width: calc(50% - 10px); /* Adjust the width as needed */
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: top;
+    
+
+  }
+  
+  .card-container2 {
+    width: calc(50% - 10px); /* Adjust the width as needed */
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .card-container3 {
+    margin: 0 auto;
+    width: 400px; /* Adjust the width as needed */
+  }
+  .welcome-message {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
