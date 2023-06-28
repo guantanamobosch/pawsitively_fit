@@ -12,7 +12,7 @@ export default function Header() {
 
 
       <nav className='header-navigation'>
-      <h1>{<Pets className="pet-icon" />} Fur Sur</h1>
+      <h1>{<Pets className="pet-icon" />} petDoc</h1>
       <Link to='/dashboard'>{<Home className="header-icon" style={{ color: 'black' }} />}</Link>
       <Link to='/messages'>{<Message className="header-icon" style={{ color: 'black' }} />}</Link>
       <Link to='/settings'>{<Settings className="header-icon" style={{ color: 'black' }} />}</Link>
