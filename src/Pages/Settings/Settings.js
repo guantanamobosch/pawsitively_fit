@@ -16,7 +16,7 @@ export default function Settings({ user, setUser }) {
 
   return (
     <div className='setings'>
-      <div className="header">
+      <div className="PageTitleContainer">
         <h3 className="PageTitle">Settings</h3>
         <button onClick={handleLogout}>Log Out</button>
       </div>

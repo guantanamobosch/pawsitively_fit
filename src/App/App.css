@@ -6,6 +6,39 @@ button:hover {
   cursor: pointer
 }
 
+.pageContent {
+  background-color: #EFEFEF;
+}
+
+.PageTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0vh 2vh;
+}
+
+/* FORM STYLINGS */
+
+.infoCardContainer {
+  display: grid;
+  grid-template-columns: (2, 1fr);
+  margin: 1vh;
+  row-gap: 1vh;
+}
+
+.infoCard p {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  background-color: darkslategray;
+  padding: 1vh 2vh;
+  color: white;
+}
+
+.infoCard p:hover {
+  cursor: pointer;
+  background-color: rgb(155, 1, 32);
+}
+
 /* MODAL STYLINGS */
 
 .modal {
@@ -26,7 +59,7 @@ button:hover {
   border: 1px solid #888;
   border-radius: 5px;
   width: 50vh;
-  height: 55vh;
+  height: 60vh;
   padding: 3vh;
   margin: 2vh;
   overflow: auto;
@@ -87,13 +120,24 @@ button:hover {
   padding: 0.75vh;
   color: white;
   font-weight: bold;
+  font-size: 2vh;
 }
 
-.formSubmit:hover {
+.addItem {
+  border-color: transparent;
+  margin-top: 2vh;
+  align-self: center;
+  background-color: black;
+  padding: 0.75vh;
+  color: white;
+  align-self: flex-end;
+}
+
+.formSubmit:hover, .addItem:hover {
   background-color: rgb(102, 102, 102);
 }
 
-.formSubmit:active {
+.formSubmit:active, addItem:active {
   background-color: rgb(211, 211, 211);
   color: black;
 }

@@ -3,7 +3,7 @@ import './Dropdown.css'
 
 export default function Dropdown() {
   return (
-<div class="dropdown">
+<div className="dropdown">
   <select>
     <option value="option1">My Account</option>
     <option value="option2">Notifications</option>

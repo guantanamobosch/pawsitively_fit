@@ -1,13 +1,13 @@
 .vetCard {
-  background-color: #E6E6E6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2vh;
-  column-gap: 2vh;
-  margin-block-end: 0px;
-  margin-block-start: 0px;
-}
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+    column-gap: 2vh;
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+  }
 
 .vetCard p, .vetCard h3 {
   margin-block-start: 0px;

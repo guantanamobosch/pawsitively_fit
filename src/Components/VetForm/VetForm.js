@@ -3,7 +3,7 @@ import './VetForm.css'
 import * as vetServices from '../../utilities/vets-utilities/vets-services'
 import * as petServices from '../../utilities/dogs-utilities/dogs-services'
 
-export default function VetForm({ user, setVets }) {
+export default function VetForm({ user, setVets, setShowModal }) {
 
   const [pets, setPets] = useState([])
 
@@ -53,6 +53,7 @@ export default function VetForm({ user, setVets }) {
         pets: '',
         office: '',
       })
+      setShowModal(false)
     } catch (error) {
       console.error('Error:', error)
     }
@@ -60,7 +61,7 @@ export default function VetForm({ user, setVets }) {
 
   return (
     <div className='formContainer'>
-      <h3>Add New Vet</h3>
+      <h2>Add New Vet</h2>
       <form onSubmit={handleSubmit} className='form'>
         <label htmlFor="name">Name:</label>
         <input

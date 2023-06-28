@@ -1,11 +1,8 @@
-.PageTitleContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0vh 2vh;
-}
-
 .vetCardContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin: 2vh 0vh;
+  row-gap: 2vh;
 }
