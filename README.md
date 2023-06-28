@@ -8,8 +8,6 @@
 
 ## <a href="https://pet-doc-4af8968aa1e4.herokuapp.com/">Click to Demo</a>
 
-### The Team
-
 | The Team            | Role | LinkedIn | Github |
 | :---------------- | :------: | :----: | :----:
 | Ivy Do       |   UI/UX   | [![LinkedIn Badge](https://img.shields.io/badge/-@ivydo8686-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/ivydo8686/) | |
