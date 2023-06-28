@@ -77,7 +77,7 @@ export default function Assessment() {
                 </Link>
                 <Typography>Symptom Assessment</Typography>
             </Breadcrumbs>
-            <div>
+            <div className="AssessmentContent">
                 <h3 className="pageTitle">Symptom Assessment</h3>
                 {finishTest ? (
                     /* when test is finished and results are listing, show "Report" */
