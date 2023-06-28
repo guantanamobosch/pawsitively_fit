@@ -17,10 +17,9 @@ export default function AssessmentBox({
   loading,
   currentSymptomIndex,
   aiResponse,
-  symptomDurations,
-  setSymptomDurations,
 }) {
   const [pets, setPets] = useState([])
+  const [symptomDurations, setSymptomDurations] = useState([])
 
   const page = useLocation().pathname
 
@@ -120,6 +119,7 @@ export default function AssessmentBox({
               <SymptomCard
                 symptom={symptom}
                 key={index}
+                index={index}
                 onSymptomRemove={handleSymptomRemove}
               />
             ))}
@@ -128,7 +128,7 @@ export default function AssessmentBox({
       )}
       {/* Assessment Page 4 */}
       {page === '/assessment/4' && (
-        <>
+        <div>
           <SpecificSymptom
             selectedPet={selectedPet}
             symptom={symptoms[currentSymptomIndex]}
@@ -137,7 +137,7 @@ export default function AssessmentBox({
               handleDurationChange(currentSymptomIndex, duration)
             }
           />
-        </>
+        </div>
       )}
       {/* Assessment Page 5 */}
       {page === '/assessment/5' && (
