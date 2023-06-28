@@ -48,17 +48,12 @@ export default function BreedInfo() {
     }, []);
 
     return (
-        <div>
-            <div>
-                {/* <h3 class='PageTitle'>{pet.breed}</h3> */}
-                {/* sandwich icon here */}
-                {breedName}
-                <img src={breedPicture} alt="This is the dog!" />
+        <div className="Breed-Info-Header">
+            <div className="Breed-Info-Header-Text">
+                <h4>{breedName}</h4>
+                <p>Written by: Dr. Scooby Doo D.V.M.</p>
             </div>
-            {/* <img> */}
-            {/* dog image here */}
-            {/* </img> */}
-            {/* <p>description about breed goes here</p> */}
+            {/* <img src={breedPicture} alt="This is the dog!" /> */}
         </div>
     );
 }
