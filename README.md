@@ -1,5 +1,3 @@
-This is Pawsitively Fit! Currently under construction (working in Dev branch or lower).<br>
-
 <div align="center">
 <img src="https://github.com/guantanamobosch/pawsitively_fit/assets/31415907/74e21319-33a1-4862-b8e0-c3c11458b99a">
 </div>
@@ -99,3 +97,5 @@ This is Pawsitively Fit! Currently under construction (working in Dev branch or 
 [:x:] Deploy to the Google Play Store <br>
 [:x:] Add the ability for Vets to make accounts<br>
 [:x:] Create a Terms of Service statement/page<br>
+
+This is Pawsitively Fit! Currently under construction (working in Dev branch or lower).<br>
