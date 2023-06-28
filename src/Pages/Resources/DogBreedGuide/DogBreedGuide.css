@@ -5,3 +5,13 @@
 .Breed-Guide-Link:hover {
     text-decoration: underline;
 }
+
+.Breed-Guide-Stretcher {
+    height: 50px;
+}
+
+.Breed-Guide-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

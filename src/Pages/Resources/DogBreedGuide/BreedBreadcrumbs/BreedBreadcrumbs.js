@@ -16,7 +16,7 @@ export default function BreedBreadcrumbs() {
                 </Link>
                 <Typography>Dog Breeds</Typography>
             </Breadcrumbs>
-            <h4>Dog Breeds</h4>
+            <h3>Dog Breeds</h3>
         </div>
     );
 }
