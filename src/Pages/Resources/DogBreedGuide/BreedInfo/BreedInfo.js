@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./BreedInfo.css";
 import BreedInfoMenu from "./BreedInfoMenu/BreedInfoMenu";
 // import BreedInfoOverlay from "./BreedInfoOverlay/BreedInfoOverlay";
@@ -10,6 +11,8 @@ import Feeding from "./Feeding/Feeding";
 import BehaviorAndTraining from "./BehaviorAndTraining/BehaviorAndTraining";
 import Grooming from "./Grooming/Grooming";
 import FAQs from "./FAQs/FAQs";
+import { Breadcrumbs } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export default function BreedInfo() {
     const [breedName, setBreedName] = useState("");
@@ -83,6 +86,22 @@ export default function BreedInfo() {
 
     return (
         <div className="Breed-Info-Container">
+            <Breadcrumbs>
+                <Link underline="hover" color="inherit" to="/dashboard">
+                    Home
+                </Link>
+                <Link underline="hover" color="inherit" to="/resources">
+                    Resources
+                </Link>
+                <Link
+                    underline="hover"
+                    color="inherit"
+                    to="/resources/breed-guide"
+                >
+                    Dog Breeds
+                </Link>
+                <Typography>{breedName}</Typography>
+            </Breadcrumbs>
             <div className="Breed-Info-Header">
                 <div className="Breed-Info-Header-Text">
                     <h2>{breedName}</h2>

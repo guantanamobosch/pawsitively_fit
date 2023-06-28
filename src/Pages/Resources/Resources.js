@@ -8,6 +8,7 @@ import "./Resources.css";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
+import { Breadcrumbs } from "@mui/material";
 // import ResourceCard from '../../Components/ResourceCard/ResourceCard'
 // import SearchBar from '../../Components/SearchBar/SearchBar'
 
@@ -15,6 +16,12 @@ export default function Resources() {
     const theme = useTheme();
     return (
         <>
+            <Breadcrumbs>
+                <Link underline="hover" color="inherit" to="/dashboard">
+                    Home
+                </Link>
+                <Typography>Resources</Typography>
+            </Breadcrumbs>
             <div className="resources-div-container">
                 <div>
                     <h3 className="PageTitle">My Resources</h3>
