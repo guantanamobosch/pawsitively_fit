@@ -1,0 +1,62 @@
+.SpecificSymptomsForm input[type="radio"] {
+  display: none;
+}
+
+.SpecificSymptomsForm label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.SpecificSymptomsForm .selectedSymptom {
+  background-color: black;
+  color: white;
+}
+
+.SpecificSymptomsForm label:hover {
+  background-color: #838383;
+  color: white;
+}
+
+.SpecificSymptomsForm label:active {
+  background-color: darkslategray;
+}
+
+.SpecificSymptomsForm input[type="radio"]:checked + label {
+  background-color: blue;
+  color: #fff;
+}
+
+.SpecificSymptomsForm label span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #999;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.SpecificSymptomsForm input[type="radio"]:checked + label span:before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.SpecificSymptomsForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1.5vh;
+}

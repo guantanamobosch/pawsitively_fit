@@ -1,9 +1,9 @@
 import React from 'react'
 import './SymptomCard.css'
 
-export default function SymptomCard({ symptom, onSymptomRemove, key }) {
+export default function SymptomCard({ symptom, onSymptomRemove, index }) {
   return (
-    <div className='infoCard' onClick={() => onSymptomRemove(key)}>
+    <div className='infoCard' onClick={() => onSymptomRemove(index)}>
       <p>{symptom}</p>
     </div>
   )

@@ -17,9 +17,10 @@ export default function AssessmentBox({
   loading,
   currentSymptomIndex,
   aiResponse,
+  symptomDurations,
+  setSymptomDurations,
 }) {
   const [pets, setPets] = useState([])
-  const [symptomDurations, setSymptomDurations] = useState([])
 
   const page = useLocation().pathname
 
@@ -112,9 +113,7 @@ export default function AssessmentBox({
           <p>
             What symptoms is <i>{selectedPet.name}</i> experiencing?
           </p>
-          <SymptomForm
-            onSymptomSubmit={handleSymptomSubmit}
-          />
+          <SymptomForm onSymptomSubmit={handleSymptomSubmit} />
           <div className="SymptomCardContainer">
             {/* SymptomCard will populate as user enters  */}
             {symptoms.map((symptom, index) => (

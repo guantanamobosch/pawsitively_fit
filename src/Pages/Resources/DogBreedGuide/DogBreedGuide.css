@@ -6,12 +6,12 @@
     text-decoration: underline;
 }
 
-.Breed-Guide-Stretcher {
-    height: 50px;
-}
-
 .Breed-Guide-Container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.Dog-List-Container {
+    margin-top: 30px;
 }
