@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./BreedInfo.css";
+import BreedInfoMenu from "./BreedInfoMenu/BreedInfoMenu";
 // import BreedInfoOverlay from "./BreedInfoOverlay/BreedInfoOverlay";
 // import { parse } from "dotenv";
 import { getBreedPhoto } from "../../../../utilities/dogs-utilities/dogs-api";
@@ -50,9 +51,10 @@ export default function BreedInfo() {
     return (
         <div className="Breed-Info-Header">
             <div className="Breed-Info-Header-Text">
-                <h4>{breedName}</h4>
+                <h2>{breedName}</h2>
                 <p>Written by: Dr. Scooby Doo D.V.M.</p>
             </div>
+            <BreedInfoMenu />
             {/* <img src={breedPicture} alt="This is the dog!" /> */}
         </div>
     );
