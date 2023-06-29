@@ -16,10 +16,12 @@ export default function AssessmentBox({
   setSymptoms,
   loading,
   currentSymptomIndex,
+  setCurrentSymptomIndex,
   aiResponse,
+  symptomDurations,
+  setSymptomDurations,
 }) {
   const [pets, setPets] = useState([])
-  const [symptomDurations, setSymptomDurations] = useState([])
 
   const page = useLocation().pathname
 
@@ -113,6 +115,7 @@ export default function AssessmentBox({
             What symptoms is <i>{selectedPet.name}</i> experiencing?
           </p>
           <SymptomForm onSymptomSubmit={handleSymptomSubmit} />
+          {symptoms.length > 0 && <h3>Current Symptoms:</h3>}
           <div className="SymptomCardContainer">
             {/* SymptomCard will populate as user enters  */}
             {symptoms.map((symptom, index) => (
@@ -136,6 +139,9 @@ export default function AssessmentBox({
             onDurationChange={(duration) =>
               handleDurationChange(currentSymptomIndex, duration)
             }
+            setCurrentSymptomIndex={setCurrentSymptomIndex}
+            currentSymptomIndex={currentSymptomIndex}
+            symptoms={symptoms}
           />
         </div>
       )}
@@ -158,10 +164,10 @@ export default function AssessmentBox({
             <p>loading your results...</p>
           </>
         ) : (
-          <>
-            <p>{selectedPet.name}</p>
+          <div className='AssessmentReport'>
+            <h3>Assessment Report</h3>
             <ResultsList aiResponse={aiResponse} />
-          </>
+          </div>
         ))}
     </div>
   )
