@@ -2,8 +2,7 @@
   background-color: white;
   border: 1px solid black;
   padding: 3vh 4vh;
-  margin: 2vh;
-  width: 35vh;
+  margin: 2vh 0vh;
   height: 40vh;
   overflow-y: scroll;
 }

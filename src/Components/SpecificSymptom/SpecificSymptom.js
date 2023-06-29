@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import './SpecificSymptom.css'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function SpecificSymptom({
   symptom,
   selectedPet,
   duration,
   onDurationChange,
+  setCurrentSymptomIndex,
+  currentSymptomIndex,
+  symptoms,
 }) {
   const [selectedDuration, setSelectedDuration] = useState(duration)
+
+  const navigate = useNavigate()
+  const page = useLocation().pathname
 
   function handleDurationChange(event) {
     const newDuration = event.target.value
@@ -20,8 +27,24 @@ export default function SpecificSymptom({
     console.log(selectedDuration) // Log the updated value whenever it changes
   }, [selectedDuration])
 
+  // Function to handle navigating to the previous symptom
+  function goToPreviousSymptom() {
+    if (currentSymptomIndex > 0) {
+      setCurrentSymptomIndex((prevIndex) => prevIndex - 1)
+      navigate(`/assessment/4`)
+    }
+  }
+
+  // Function to handle navigating to the next symptom
+  function goToNextSymptom() {
+    if (currentSymptomIndex < symptoms.length - 1) {
+      setCurrentSymptomIndex((prevIndex) => prevIndex + 1)
+      navigate(`/assessment/4`)
+    }
+  }
+
   return (
-    <div className='SpecificSymptoms'>
+    <div className="SpecificSymptoms">
       <div className="SpecificSymptomsForm">
         <p style={{ marginBottom: '2vh' }}>
           How long has <i>{selectedPet.name}</i> been experiencing{' '}
@@ -93,6 +116,23 @@ export default function SpecificSymptom({
           I don't know
         </label>
       </div>
+      {page === '/assessment/4' && (
+        <div className='SymptomNavigator'>
+          <h4
+            onClick={goToPreviousSymptom}
+            disabled={currentSymptomIndex === 0}
+          >
+            Previous Symptom
+          </h4>
+          <button
+            className='formSubmit'
+            onClick={goToNextSymptom}
+            disabled={currentSymptomIndex === symptoms.length - 1}
+          >
+            Next Symptom
+          </button>
+        </div>
+      )}
     </div>
   )
 }

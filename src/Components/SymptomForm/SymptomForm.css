@@ -20,5 +20,6 @@
 }
 
 .symptomForm .addItem {
-  align-self: center
+  align-self: center;
+  font-weight: bold;
 }
