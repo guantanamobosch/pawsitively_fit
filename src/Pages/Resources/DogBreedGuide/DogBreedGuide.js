@@ -3,6 +3,7 @@ import "./DogBreedGuide.css";
 import { Link } from "react-router-dom";
 import { getBreedList } from "../../../utilities/dogs-utilities/dogs-api";
 import BreedNameAlphabetScroller from "./BreedNameAlphabetScroller/BreedNameAlphabetScroller";
+import BreedBreadcrumbs from "./BreedBreadcrumbs/BreedBreadcrumbs";
 
 export default function DogBreedGuide() {
     const [dogList, setDogList] = useState([]);
@@ -28,23 +29,61 @@ export default function DogBreedGuide() {
     }, [selectedLetter]);
 
     return (
-        <>
+        <div className="Breed-Guide-Container">
+            <BreedBreadcrumbs />
             <BreedNameAlphabetScroller setSelectedLetter={setSelectedLetter} />
-            {Array.isArray(dogList)
-                ? dogList.map((dog, index) => {
-                      if (index === 0 || dog[0] !== dogLetter) {
-                          dogLetter = dog[0];
-                          if (dog.includes(" ")) {
-                              const nameArr = dog.split(" ");
-                              const firstNameLink =
-                                  nameArr[1].charAt(0).toLowerCase() +
-                                  nameArr[1].slice(1);
-                              const lastNameLink =
-                                  nameArr[0].charAt(0).toLowerCase() +
-                                  nameArr[0].slice(1);
-                              return (
-                                  <>
-                                      <h4 id={dog[0]}>{dog[0]}</h4>
+            <div className="Dog-List-Container">
+                {Array.isArray(dogList)
+                    ? dogList.map((dog, index) => {
+                          if (index === 0 || dog[0] !== dogLetter) {
+                              dogLetter = dog[0];
+                              if (dog.includes(" ")) {
+                                  const nameArr = dog.split(" ");
+                                  const firstNameLink =
+                                      nameArr[1].charAt(0).toLowerCase() +
+                                      nameArr[1].slice(1);
+                                  const lastNameLink =
+                                      nameArr[0].charAt(0).toLowerCase() +
+                                      nameArr[0].slice(1);
+                                  return (
+                                      <>
+                                          <h4 id={dog[0]}>{dog[0]}</h4>
+                                          <Link
+                                              key={`${firstNameLink}-${lastNameLink}-${index}`}
+                                              to={`/resources/breed-guide/breed-info/${firstNameLink}-${lastNameLink}`}
+                                              className="Breed-Guide-Link"
+                                          >
+                                              <p>{dog}</p>
+                                          </Link>
+                                      </>
+                                  );
+                              } else {
+                                  const nameLink =
+                                      dog.charAt(0).toLowerCase() +
+                                      dog.slice(1);
+                                  return (
+                                      <>
+                                          <h4 id={dog[0]}>{dog[0]}</h4>
+                                          <Link
+                                              key={`${nameLink}-${index}`}
+                                              to={`/resources/breed-guide/breed-info/${nameLink}`}
+                                              className="Breed-Guide-Link"
+                                          >
+                                              <p>{dog}</p>
+                                          </Link>
+                                      </>
+                                  );
+                              }
+                          } else {
+                              if (dog.includes(" ")) {
+                                  const nameArr = dog.split(" ");
+                                  const firstNameLink =
+                                      nameArr[1].charAt(0).toLowerCase() +
+                                      nameArr[1].slice(1);
+                                  const lastNameLink =
+                                      nameArr[0].charAt(0).toLowerCase() +
+                                      nameArr[0].slice(1);
+                                  return (
                                       <Link
                                           key={`${firstNameLink}-${lastNameLink}-${index}`}
                                           to={`/resources/breed-guide/breed-info/${firstNameLink}-${lastNameLink}`}
@@ -52,14 +91,12 @@ export default function DogBreedGuide() {
                                       >
                                           <p>{dog}</p>
                                       </Link>
-                                  </>
-                              );
-                          } else {
-                              const nameLink =
-                                  dog.charAt(0).toLowerCase() + dog.slice(1);
-                              return (
-                                  <>
-                                      <h4 id={dog[0]}>{dog[0]}</h4>
+                                  );
+                              } else {
+                                  const nameLink =
+                                      dog.charAt(0).toLowerCase() +
+                                      dog.slice(1);
+                                  return (
                                       <Link
                                           key={`${nameLink}-${index}`}
                                           to={`/resources/breed-guide/breed-info/${nameLink}`}
@@ -67,43 +104,12 @@ export default function DogBreedGuide() {
                                       >
                                           <p>{dog}</p>
                                       </Link>
-                                  </>
-                              );
+                                  );
+                              }
                           }
-                      } else {
-                          if (dog.includes(" ")) {
-                              const nameArr = dog.split(" ");
-                              const firstNameLink =
-                                  nameArr[1].charAt(0).toLowerCase() +
-                                  nameArr[1].slice(1);
-                              const lastNameLink =
-                                  nameArr[0].charAt(0).toLowerCase() +
-                                  nameArr[0].slice(1);
-                              return (
-                                  <Link
-                                      key={`${firstNameLink}-${lastNameLink}-${index}`}
-                                      to={`/resources/breed-guide/breed-info/${firstNameLink}-${lastNameLink}`}
-                                      className="Breed-Guide-Link"
-                                  >
-                                      <p>{dog}</p>
-                                  </Link>
-                              );
-                          } else {
-                              const nameLink =
-                                  dog.charAt(0).toLowerCase() + dog.slice(1);
-                              return (
-                                  <Link
-                                      key={`${nameLink}-${index}`}
-                                      to={`/resources/breed-guide/breed-info/${nameLink}`}
-                                      className="Breed-Guide-Link"
-                                  >
-                                      <p>{dog}</p>
-                                  </Link>
-                              );
-                          }
-                      }
-                  })
-                : null}
-        </>
+                      })
+                    : null}
+            </div>
+        </div>
     );
 }

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import './SymptomForm.css'
 
-export default function SymptomForm({ onSymptomSubmit }) {
+export default function SymptomForm({
+  onSymptomSubmit,
+}) {
   const [symptom, setSymptom] = useState('')
 
   function handleSubmit(event) {
@@ -13,14 +15,17 @@ export default function SymptomForm({ onSymptomSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="symptomForm">
       <input
         type="text"
-        placeholder="Enter symptom"
+        placeholder="e.g. fever"
         value={symptom}
         onChange={(event) => setSymptom(event.target.value)}
+        className="symptomInput"
       />
-      <button type="submit">Submit</button>
+      <button type="submit" className="addItem">
+        Add Symptom
+      </button>
     </form>
   )
 }

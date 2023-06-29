@@ -5,3 +5,13 @@
 .Breed-Guide-Link:hover {
     text-decoration: underline;
 }
+
+.Breed-Guide-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Dog-List-Container {
+    margin-top: 30px;
+}

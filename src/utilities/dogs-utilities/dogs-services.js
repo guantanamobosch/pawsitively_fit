@@ -19,6 +19,11 @@ export async function indexPets() {
   return pets
 }
 
+export async function findPet(petData) {
+  const foundPet = await dogAPI.findPetById(petData)
+  return foundPet
+}
+
 // update pet
 export async function updatePet(pet) {
   const petId = pet._id

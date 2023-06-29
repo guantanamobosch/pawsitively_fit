@@ -5,7 +5,6 @@
   }
   
   .header-navigation {
-    height: 50px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -32,6 +31,6 @@
     fill: black;
   }
 
-  h1 {
-    font-size: 40px;
-  }
+h1 {
+  font-size: 40px;
+}

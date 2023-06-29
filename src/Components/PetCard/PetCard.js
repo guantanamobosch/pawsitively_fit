@@ -11,27 +11,25 @@ export default function PetCard({ pet }) {
       </div>
       <div className="petDetailsContainer">
         <div className="petDetails">
-          <p>
-            <b>Breed: </b>
-            {pet.breed.length > 1
+          <p style={{ marginBlockEnd: '0.25em' }}>
+            Breed: {pet.breed.length > 1
               ? `Mixed (${pet.breed.join(', ')})`
               : pet.breed.join(', ')}
           </p>
-          <p>
-            <b>Age: </b>
-            {pet.age}
+          <p style={{ marginBlockEnd: '0.25em' }}>
+            Age: {pet.age}
+          </p>
+          <p style={{ marginBlockEnd: '0.25em' }}>
+            DOB: {formattedBirthDate}
           </p>
           <p>
-            <b>DOB: </b>
-            {formattedBirthDate}
-          </p>
-          <p>
-            <b>Weight: </b>
-            {pet.weight} lbs.
+            Weight: {pet.weight} lbs.
           </p>
         </div>
-        <div>
-          <button>EDIT</button>
+        <div className="morePetDetails">
+          <p>
+            <u>Edit Details {'>'}</u>
+          </p>
         </div>
       </div>
       {/* Display other pet information */}

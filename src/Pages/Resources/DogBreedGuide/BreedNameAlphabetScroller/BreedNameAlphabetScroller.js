@@ -22,6 +22,7 @@ export default function BreedNameAlphabetScroller({ setSelectedLetter }) {
                     </li>
                 ))}
             </ul>
+            <div className='alphabet-scroll-stretcher'></div>
         </div>
     );
 }

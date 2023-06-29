@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="navbar-icon">
           <ProvidersIcon style={{ color: 'black' }} />
         </div>
-        <span className="navbar-label">Providers</span>
+        <span className="navbar-label">My Vets</span>
       </Link>
       <span className="navbar-separator"></span>
       <Link to="/resources" className="navbar-link">

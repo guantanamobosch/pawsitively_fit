@@ -6,12 +6,12 @@ import LogInForm from '../../Components/AuthForm/LogInForm'
 export default function AuthPage({ setUser }) {
   const [showSignUpForm, setShowSignUpForm] = useState(false)
   const [showLoginForm, setShowLoginForm] = useState(true)
-  const [pageTitle, setPageTitle] = useState('FurSur')
+  const [pageTitle, setPageTitle] = useState('petDOC')
 
   const handleCreateAccountClick = () => {
     setShowSignUpForm(true)
     setShowLoginForm(false)
-    setPageTitle('Create An Account')
+    setPageTitle('petDOC')
   }
 
   return (
