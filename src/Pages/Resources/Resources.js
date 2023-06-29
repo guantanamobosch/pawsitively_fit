@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 
 import "./Resources.css";
 
@@ -7,12 +8,20 @@ import "./Resources.css";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
+import { Breadcrumbs } from "@mui/material";
 // import ResourceCard from '../../Components/ResourceCard/ResourceCard'
 // import SearchBar from '../../Components/SearchBar/SearchBar'
 
 export default function Resources() {
+    const theme = useTheme();
     return (
         <>
+            <Breadcrumbs>
+                <Link underline="hover" color="inherit" to="/dashboard">
+                    Home
+                </Link>
+                <Typography>Resources</Typography>
+            </Breadcrumbs>
             <div className="resources-div-container">
                 <div>
                     <h3 className="PageTitle">My Resources</h3>
@@ -21,8 +30,9 @@ export default function Resources() {
                 <Grid container columnSpacing={2} rowSpacing={4}>
                     <Grid
                         item
-                        xs={2}
+                        xs={6}
                         sm={4}
+                        md={4}
                         sx={{
                             display: "flex",
                             justifyContent: "center",
@@ -40,15 +50,18 @@ export default function Resources() {
                                 alignItems: "center",
                             }}
                         >
-                            <Typography variant="h4">
-                                Symptom Assessment
-                            </Typography>
+                            <Link to="/assessment">
+                                <Typography variant="h5">
+                                    Symptom Assessment
+                                </Typography>
+                            </Link>
                         </Card>
                     </Grid>
                     <Grid
                         item
-                        xs={2}
+                        xs={6}
                         sm={4}
+                        md={4}
                         sx={{
                             display: "flex",
                             justifyContent: "center",
@@ -67,7 +80,7 @@ export default function Resources() {
                             }}
                         >
                             <Link to="/resources/breed-guide">
-                                <Typography variant="h4">
+                                <Typography variant="h5">
                                     Breed Guide
                                 </Typography>
                             </Link>
@@ -75,8 +88,9 @@ export default function Resources() {
                     </Grid>
                     <Grid
                         item
-                        xs={2}
+                        xs={6}
                         sm={4}
+                        md={4}
                         sx={{
                             display: "flex",
                             justifyContent: "center",
@@ -94,13 +108,14 @@ export default function Resources() {
                                 alignItems: "center",
                             }}
                         >
-                            <Typography variant="h4">Pet Training</Typography>
+                            <Typography variant="h5">Pet Training</Typography>
                         </Card>
                     </Grid>
                     <Grid
                         item
-                        xs={2}
+                        xs={6}
                         sm={4}
+                        md={4}
                         sx={{
                             display: "flex",
                             justifyContent: "center",
@@ -118,13 +133,14 @@ export default function Resources() {
                                 alignItems: "center",
                             }}
                         >
-                            <Typography variant="h4">Pet Travel</Typography>
+                            <Typography variant="h5">Pet Travel</Typography>
                         </Card>
                     </Grid>
                     <Grid
                         item
-                        xs={2}
+                        xs={6}
                         sm={4}
+                        md={4}
                         sx={{
                             display: "flex",
                             justifyContent: "center",
@@ -142,13 +158,14 @@ export default function Resources() {
                                 alignItems: "center",
                             }}
                         >
-                            <Typography variant="h4">Pet Nutrition</Typography>
+                            <Typography variant="h5">Pet Nutrition</Typography>
                         </Card>
                     </Grid>
                     <Grid
                         item
-                        xs={2}
+                        xs={6}
                         sm={4}
+                        md={4}
                         sx={{
                             display: "flex",
                             justifyContent: "center",
@@ -166,7 +183,7 @@ export default function Resources() {
                                 alignItems: "center",
                             }}
                         >
-                            <Typography variant="h4">Pet Shelters</Typography>
+                            <Typography variant="h5">Pet Shelters</Typography>
                         </Card>
                     </Grid>
                 </Grid>

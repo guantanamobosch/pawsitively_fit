@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+button:hover {
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.clickable {
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pageContent {
+  background-color: #efefef;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.PageTitleContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0vh 2vh;
+}
+
+/* FORM STYLINGS */
+
+.infoCardContainer {
+  display: grid;
+  grid-template-columns: (2, 1fr);
+  margin: 1vh;
+  row-gap: 1vh;
+}
+
+.infoCard p {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  background-color: darkslategray;
+  padding: 1vh 2vh;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.infoCard p:hover {
+  cursor: pointer;
+  background-color: rgb(155, 1, 32);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* MODAL STYLINGS */
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 50vh;
+  height: 60vh;
+  padding: 3vh;
+  margin: 2vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  color: #aaa;
+  align-self: flex-end;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* FORM STYLINGS */
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  text-align: left;
+  font-weight: bold;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.form input,
+.form select {
+  width: 30vh;
+  height: 3vh;
+}
+
+.form option {
+  text-align: center;
+  width: 100%;
+}
+
+.formSubmit {
+  border-color: transparent;
+  margin-top: 2vh;
+  align-self: center;
+  background-color: black;
+  padding: 1vh 2vh;
+  color: white;
+  font-weight: bold;
+  font-size: 2vh;
+}
+
+.formSubmit:disabled {
+  background-color: gray;
+}
+
+.formSubmit:disabled:hover {
+  cursor: default;
+  background-color: gray;
+}
+
+.formSubmit:disabled:active {
+  cursor: default;
+  background-color: gray;
+  color: white;
+}
+
+.addItem {
+  border-color: transparent;
+  margin-top: 2vh;
+  align-self: center;
+  background-color: black;
+  padding: 0.75vh;
+  color: white;
+  align-self: flex-end;
+}
+
+.formSubmit:hover,
+.addItem:hover {
+  background-color: rgb(102, 102, 102);
+}
+
+.formSubmit:active,
+.addItem:active {
+  background-color: rgb(211, 211, 211);
+  color: black;
 }

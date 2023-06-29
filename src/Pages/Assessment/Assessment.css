@@ -1,0 +1,62 @@
+.pageTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.Timer-And-Intro-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Timer-Icon-Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(119, 119, 119);
+  column-gap: 1vh;
+}
+
+.Assessment-Intro-Text {
+  text-align: center;
+  padding: 20px;
+}
+
+.AssessmentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.AssessmentContent h3 {
+    margin-block-start: 2vh;
+    margin-block-end: 1vh;
+}
+
+.AssessmentContent p {
+    margin-block-start: 0vh;
+    margin-block-end: 1vh;
+}
+
+.AssessmentContent {
+    width: 80vw;
+}
+
+.divider {
+    height: 1.5px;
+    background-color: black;
+    margin: 2vh 0vh;
+}
+
+.ResultOptionsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.OptionsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 1vh;
+}

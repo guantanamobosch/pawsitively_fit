@@ -4,16 +4,16 @@ import { useNavigate } from 'react-router-dom'
 
 export default function PageNav({
   currentPage,
-  setCurrentPage,
   totalPages,
   onNext,
   onPrevious,
   selectedPetCount,
   onGetAssessment,
-  setCurrentSymptomIndex,
   currentSymptomIndex,
   symptoms,
+  finishTest,
   setFinishTest,
+  symptomDurations,
 }) {
   const disableNext = currentPage === 2 && selectedPetCount !== 1 // Disable the Next button if selectedPetCount is not equal to 1
   const navigate = useNavigate()
@@ -21,57 +21,41 @@ export default function PageNav({
   function handleAIAssessment() {
     navigate('/assessment/6')
     onGetAssessment()
-    onNext()
     setFinishTest(true)
   }
 
-  function handleNextSymptom() {
-    setCurrentSymptomIndex(currentSymptomIndex + 1)
-  }
-
-  function handlePreviousSymptom() {
-    setCurrentSymptomIndex(currentSymptomIndex - 1)
+  function handleCancel() {
+    navigate('/dashboard')
   }
 
   return (
-    <div>
-      {currentPage === 6 ? (
-        <>
-          <button
-            onClick={() => navigate('/pets')}
-          >
-            Finish Test
-          </button>
-        </>
+    <div className='PageNavigator'>
+      {finishTest ? ( ''
       ) : (
         <>
-          <button onClick={onPrevious} disabled={currentPage === 1}>
-            Previous Page
+          <h3
+            onClick={currentPage === 1 ? handleCancel : onPrevious}
+          >
+            {currentPage === 1 ? 'Cancel Assessment' : 'Previous Page'}
+          </h3>
+          <button
+            className="formSubmit"
+            onClick={currentPage === 5 ? handleAIAssessment : onNext}
+            disabled={
+              currentPage === totalPages ||
+              disableNext ||
+              symptomDurations.length !== symptoms.length ||
+              (currentPage === 4 &&
+                symptomDurations.some((duration) => !duration)) ||
+              (currentPage === 3 && symptomDurations.length < 1)
+            }
+          >
+            {currentPage === 5
+              ? 'VIEW RESULTS'
+              : currentPage === 4 && currentSymptomIndex === symptoms.length - 1
+              ? 'Finish Assessing Symptoms'
+              : 'NEXT'}
           </button>
-          {currentPage === 4 ? (
-            <>
-              <button
-                onClick={handlePreviousSymptom}
-                disabled={currentSymptomIndex === 0}
-              >
-                Previous Symptom
-              </button>
-              {currentSymptomIndex === symptoms.length - 1 ? (
-                <button onClick={onNext} disabled={disableNext}>
-                  Finish Assessing Symptoms
-                </button>
-              ) : (
-                <button onClick={handleNextSymptom}>Next Symptom</button>
-              )}
-            </>
-          ) : (
-            <button
-              onClick={currentPage === 5 ? handleAIAssessment : onNext}
-              disabled={currentPage === totalPages || disableNext}
-            >
-              {currentPage === 5 ? 'Get Assessment' : 'Next Page'}
-            </button>
-          )}
         </>
       )}
     </div>

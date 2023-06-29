@@ -1,26 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Settings from '@mui/icons-material/Settings'
-import Message from '@mui/icons-material/Message';
-import Home from '@mui/icons-material/Home';
-import Pets from '@mui/icons-material/Pets';
+import Message from '@mui/icons-material/Message'
+import Home from '@mui/icons-material/Home'
+import Pets from '@mui/icons-material/Pets'
 import './Header.css'
 
 export default function Header() {
   return (
     <div className="header">
-
-
-      <nav className='header-navigation'>
-      <h1>{<Pets className="pet-icon" />} petDoc</h1>
-      <Link to='/dashboard'>{<Home className="header-icon" style={{ color: 'black' }} />}</Link>
-      <Link to='/messages'>{<Message className="header-icon" style={{ color: 'black' }} />}</Link>
-      <Link to='/settings'>{<Settings className="header-icon" style={{ color: 'black' }} />}</Link>
-   
+      <nav className="header-navigation">
+        <h1>{<Pets className="pet-icon" />} petDoc</h1>
+        <div className='header-icon-container'>
+          <Link to="/dashboard">
+            {<Home className="header-icon" style={{ color: 'black' }} />}
+          </Link>
+          <Link to="/messages">
+            {<Message className="header-icon" style={{ color: 'black' }} />}
+          </Link>
+          <Link to="/settings">
+            {<Settings className="header-icon" style={{ color: 'black' }} />}
+          </Link>
+        </div>
       </nav>
-      
-      
-      
+
       <div className="authContainer">
         {/* {user ? (
               <>

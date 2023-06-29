@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './PetForm.css'
 import * as petServices from '../../utilities/dogs-utilities/dogs-services'
 
-export default function PetForm({ user, setPets }) {
+export default function PetForm({ user, setPets, setShowModal }) {
   const [petData, setPetData] = useState({
     name: '',
     breed: [],
@@ -79,6 +79,42 @@ export default function PetForm({ user, setPets }) {
     }
   }
 
+  function handleRemoveBreed(index) {
+    setPetData((prevData) => {
+      const updatedBreeds = [...prevData.breed]
+      updatedBreeds.splice(index, 1)
+
+      return {
+        ...prevData,
+        breed: updatedBreeds,
+      }
+    })
+  }
+
+  function handleRemoveMedication(index) {
+    setPetData((prevData) => {
+      const updatedMedications = [...prevData.medications]
+      updatedMedications.splice(index, 1)
+
+      return {
+        ...prevData,
+        medications: updatedMedications,
+      }
+    })
+  }
+
+  function handleRemoveMedicalEvent(index) {
+    setPetData((prevData) => {
+      const updatedMedicalHistory = [...prevData.medicalHistory]
+      updatedMedicalHistory.splice(index, 1)
+
+      return {
+        ...prevData,
+        medicalHistory: updatedMedicalHistory,
+      }
+    })
+  }
+
   async function handleSubmit(event) {
     event.preventDefault()
     try {
@@ -107,14 +143,17 @@ export default function PetForm({ user, setPets }) {
         newMedication: '',
         newMedicalEvent: '',
       })
+
+      setShowModal(false)
     } catch (error) {
       console.error('Error:', error)
     }
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="formContainer">
+      <h2>Add New Pet</h2>
+      <form onSubmit={handleSubmit} className="form">
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -125,6 +164,20 @@ export default function PetForm({ user, setPets }) {
           required
         />
         <label htmlFor="breed">Breed{`(s)`}:</label>
+
+        {/* Display the added breeds */}
+        <div className="infoCardContainer">
+          {petData.breed.length > 0 &&
+            petData.breed.map((breed, index) => (
+              <div
+                className="infoCard"
+                onClick={() => handleRemoveBreed(index)}
+              >
+                <p key={index}>{breed}</p>
+              </div>
+            ))}
+        </div>
+
         <input
           type="text"
           id="breed"
@@ -133,13 +186,9 @@ export default function PetForm({ user, setPets }) {
           onChange={handleChange}
         />
 
-        <button type="button" onClick={handleAddBreed}>
+        <button type="button" onClick={handleAddBreed} className="addItem">
           Add Breed
         </button>
-
-        {/* Display the added breeds */}
-        {petData.breed.length > 0 &&
-          petData.breed.map((breed, index) => <p key={index}>{breed}</p>)}
 
         <label htmlFor="age">Age:</label>
         <input
@@ -180,7 +229,7 @@ export default function PetForm({ user, setPets }) {
           required
           style={{ display: 'none' }}
         />
-
+        <h3>Optional Info</h3>
         <label htmlFor="activity">Activity:</label>
         <input
           type="text"
@@ -199,6 +248,20 @@ export default function PetForm({ user, setPets }) {
         ></textarea>
 
         <label htmlFor="medications">Medications:</label>
+
+        {/* Display the added medications */}
+        <div className="infoCardContainer">
+          {petData.medications.length > 0 &&
+            petData.medications.map((medication, index) => (
+              <div
+                className="infoCard"
+                onClick={() => handleRemoveMedication(index)}
+              >
+                <p key={index}>{medication}</p>
+              </div>
+            ))}
+        </div>
+
         <input
           type="text"
           id="medications"
@@ -207,17 +270,25 @@ export default function PetForm({ user, setPets }) {
           onChange={handleChange}
         />
 
-        <button type="button" onClick={handleAddMedication}>
+        <button type="button" onClick={handleAddMedication} className="addItem">
           Add Medication
         </button>
 
-        {/* Display the added medications */}
-        {petData.medications.length > 0 &&
-          petData.medications.map((medication, index) => (
-            <p key={index}>{medication}</p>
-          ))}
-
         <label htmlFor="medicalHistory">Medical History:</label>
+
+        {/* Display the added medical events */}
+        <div className="infoCardContainer">
+          {petData.medicalHistory.length > 0 &&
+            petData.medicalHistory.map((event, index) => (
+              <div
+                className="infoCard"
+                onClick={() => handleRemoveMedicalEvent(index)}
+              >
+                <p key={index}>{event}</p>
+              </div>
+            ))}
+        </div>
+
         <input
           type="text"
           id="medicalHistory"
@@ -226,16 +297,17 @@ export default function PetForm({ user, setPets }) {
           onChange={handleChange}
         />
 
-        <button type="button" onClick={handleAddmedicalHistory}>
+        <button
+          type="button"
+          onClick={handleAddmedicalHistory}
+          className="addItem"
+        >
           Add Medical History
         </button>
-        {/* Display the added medical events */}
-        {petData.medicalHistory.length > 0 &&
-          petData.medicalHistory.map((event, index) => (
-            <p key={index}>{event}</p>
-          ))}
 
-        <button type="submit">Add Pet</button>
+        <button type="submit" className="formSubmit">
+          Add Pet
+        </button>
       </form>
     </div>
   )

@@ -4,7 +4,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 // importing pages
 
 import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
 
 import Appointments from "../Pages/Appointments/Appointments";
@@ -33,7 +32,7 @@ export default function App() {
                     <Navbar />
                     <Routes>
                         {/* Establishing routes */}
-                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/dashboard" element={<Dashboard user = {user} />} />
                         <Route
                             path="/appointments"
                             element={<Appointments />}
@@ -41,7 +40,7 @@ export default function App() {
                         <Route path="/messages" element={<Messages />} />
                         <Route path="/assessment/*" element={<Assessment user={user} />} />
                         <Route path="/pets" element={<Pets user={user} />} />
-                        <Route path="/providers" element={<Providers />} />
+                        <Route path="/providers" element={<Providers user={user} />} />
                         <Route
                             path="/resources/breed-guide/breed-info/:dogname"
                             element={<BreedInfo />}
@@ -66,8 +65,6 @@ export default function App() {
             ) : (
                 <AuthPage setUser={setUser} />
             )}
-
-            <Footer />
         </>
     );
 }

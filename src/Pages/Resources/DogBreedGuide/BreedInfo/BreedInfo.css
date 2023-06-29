@@ -1,0 +1,26 @@
+.Breed-Info-Container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Breed-Info-Header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Breed-Info-Header-Text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Breed-Info-Header-Text > h2 {
+    margin: 0;
+}
+
+.Breed-Info-Header-Text > p {
+    margin: 0;
+}

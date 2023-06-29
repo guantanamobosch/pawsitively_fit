@@ -1,12 +1,49 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./BreedInfo.css";
+import BreedInfoMenu from "./BreedInfoMenu/BreedInfoMenu";
 // import BreedInfoOverlay from "./BreedInfoOverlay/BreedInfoOverlay";
 // import { parse } from "dotenv";
 import { getBreedPhoto } from "../../../../utilities/dogs-utilities/dogs-api";
+import GeneralCare from "./GeneralCare/GeneralCare";
+import Health from "./Health/Health";
+import Feeding from "./Feeding/Feeding";
+import BehaviorAndTraining from "./BehaviorAndTraining/BehaviorAndTraining";
+import Grooming from "./Grooming/Grooming";
+import FAQs from "./FAQs/FAQs";
+import { Breadcrumbs } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export default function BreedInfo() {
     const [breedName, setBreedName] = useState("");
     const [breedPicture, setBreedPicture] = useState("");
+    const [selectedMenuOption, setSelectedMenuOption] =
+        useState("General Care");
+
+    const options = [
+        "General Care",
+        "Health",
+        "Feeding",
+        "Behavior & Training",
+        "Grooming",
+        "FAQs",
+    ];
+
+    function MenuSelection() {
+        if (selectedMenuOption === options[0]) {
+            return <GeneralCare />;
+        } else if (selectedMenuOption === options[1]) {
+            return <Health />;
+        } else if (selectedMenuOption === options[2]) {
+            return <Feeding breedName={breedName} />;
+        } else if (selectedMenuOption === options[3]) {
+            return <BehaviorAndTraining breedName={breedName} />;
+        } else if (selectedMenuOption === options[4]) {
+            return <Grooming />;
+        } else if (selectedMenuOption === options[5]) {
+            return <FAQs />;
+        }
+    }
 
     function parseBreedUrl() {
         const currentUrl = window.location.href;
@@ -48,17 +85,36 @@ export default function BreedInfo() {
     }, []);
 
     return (
-        <div>
-            <div>
-                {/* <h3 class='PageTitle'>{pet.breed}</h3> */}
-                {/* sandwich icon here */}
-                {breedName}
-                <img src={breedPicture} alt="This is the dog!" />
+        <div className="Breed-Info-Container">
+            <Breadcrumbs>
+                <Link underline="hover" color="inherit" to="/dashboard">
+                    Home
+                </Link>
+                <Link underline="hover" color="inherit" to="/resources">
+                    Resources
+                </Link>
+                <Link
+                    underline="hover"
+                    color="inherit"
+                    to="/resources/breed-guide"
+                >
+                    Dog Breeds
+                </Link>
+                <Typography>{breedName}</Typography>
+            </Breadcrumbs>
+            <div className="Breed-Info-Header">
+                <div className="Breed-Info-Header-Text">
+                    <h2>{breedName}</h2>
+                    <p>Written by: Dr. Scooby Doo D.V.M.</p>
+                </div>
+                <BreedInfoMenu
+                    options={options}
+                    setSelectedMenuOption={setSelectedMenuOption}
+                    selectedMenuOption={selectedMenuOption}
+                />
+                {/* <img src={breedPicture} alt="This is the dog!" /> */}
             </div>
-            {/* <img> */}
-            {/* dog image here */}
-            {/* </img> */}
-            {/* <p>description about breed goes here</p> */}
+            {MenuSelection()}
         </div>
     );
 }
