@@ -12,6 +12,7 @@ export default function SpecificSymptom({
   symptoms,
 }) {
   const [selectedDuration, setSelectedDuration] = useState(duration)
+  const [selectedOption, setSelectedOption] = useState('')
 
   const navigate = useNavigate()
   const page = useLocation().pathname
@@ -32,6 +33,7 @@ export default function SpecificSymptom({
     if (currentSymptomIndex > 0) {
       setCurrentSymptomIndex((prevIndex) => prevIndex - 1)
       navigate(`/assessment/4`)
+      setSelectedOption('')
     }
   }
 
@@ -40,6 +42,7 @@ export default function SpecificSymptom({
     if (currentSymptomIndex < symptoms.length - 1) {
       setCurrentSymptomIndex((prevIndex) => prevIndex + 1)
       navigate(`/assessment/4`)
+      setSelectedOption('')
     }
   }
 
@@ -51,8 +54,9 @@ export default function SpecificSymptom({
           <i>{symptom}</i> for?
         </p>
         <label
+          onClick={() => setSelectedOption('Less than 1 day')}
           className={
-            selectedDuration === 'Less than 1 day' ? 'selectedSymptom' : ''
+            selectedOption === 'Less than 1 day' ? 'selectedSymptom' : ''
           }
         >
           <input
@@ -64,8 +68,9 @@ export default function SpecificSymptom({
           Less than 1 day
         </label>
         <label
+          onClick={() => setSelectedOption('Between 1 - 3 days')}
           className={
-            selectedDuration === 'Between 1 - 3 days' ? 'selectedSymptom' : ''
+            selectedOption === 'Between 1 - 3 days' ? 'selectedSymptom' : ''
           }
         >
           <input
@@ -77,8 +82,9 @@ export default function SpecificSymptom({
           Between 1 - 3 days
         </label>
         <label
+          onClick={() => setSelectedOption('Between 3 - 7 days')}
           className={
-            selectedDuration === 'Between 3 - 7 days' ? 'selectedSymptom' : ''
+            selectedOption === 'Between 3 - 7 days' ? 'selectedSymptom' : ''
           }
         >
           <input
@@ -90,9 +96,8 @@ export default function SpecificSymptom({
           Between 3 - 7 days
         </label>
         <label
-          className={
-            selectedDuration === 'Over a Week' ? 'selectedSymptom' : ''
-          }
+          onClick={() => setSelectedOption('Over a Week')}
+          className={selectedOption === 'Over a Week' ? 'selectedSymptom' : ''}
         >
           <input
             type="radio"
@@ -103,9 +108,8 @@ export default function SpecificSymptom({
           Over a Week
         </label>
         <label
-          className={
-            selectedDuration === "I don't know" ? 'selectedSymptom' : ''
-          }
+          onClick={() => setSelectedOption("I don't know")}
+          className={selectedOption === "I don't know" ? 'selectedSymptom' : ''}
         >
           <input
             type="radio"
@@ -117,7 +121,7 @@ export default function SpecificSymptom({
         </label>
       </div>
       {page === '/assessment/4' && (
-        <div className='SymptomNavigator'>
+        <div className="SymptomNavigator">
           <h4
             onClick={goToPreviousSymptom}
             disabled={currentSymptomIndex === 0}
@@ -125,7 +129,7 @@ export default function SpecificSymptom({
             Previous Symptom
           </h4>
           <button
-            className='formSubmit'
+            className="formSubmit"
             onClick={goToNextSymptom}
             disabled={currentSymptomIndex === symptoms.length - 1}
           >

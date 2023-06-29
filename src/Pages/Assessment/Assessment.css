@@ -29,6 +29,34 @@
   align-items: center;
 }
 
+.AssessmentContent h3 {
+    margin-block-start: 2vh;
+    margin-block-end: 1vh;
+}
+
+.AssessmentContent p {
+    margin-block-start: 0vh;
+    margin-block-end: 1vh;
+}
+
 .AssessmentContent {
     width: 80vw;
+}
+
+.divider {
+    height: 1.5px;
+    background-color: black;
+    margin: 2vh 0vh;
+}
+
+.ResultOptionsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.OptionsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 1vh;
 }

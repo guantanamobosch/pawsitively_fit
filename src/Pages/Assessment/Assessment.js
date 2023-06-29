@@ -8,6 +8,8 @@ import { generateAssessment } from '../../utilities/ai-utilities/ai-api'
 import TimerIcon from '@mui/icons-material/Timer'
 import { Breadcrumbs } from '@mui/material'
 import Typography from '@mui/material/Typography'
+import DownloadIcon from '@mui/icons-material/Download'
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
 
 export default function Assessment() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -91,9 +93,33 @@ export default function Assessment() {
         <div className="AssessmentContent">
           <h3 className="pageTitle">Symptom Assessment</h3>
           {page === '/assessment/6' && (
-            <div className='ResultsUnderCard'>
-              <p><b>{selectedPet.name}</b>, {selectedPet.breed.length > 1 ? 'Mixed' : selectedPet.breed[0]}, {selectedPet.age} years old</p>
-              <p><i>Reported symptoms: {symptoms.map((symptom, index) => index === symptoms.length - 1 ? symptom : symptom + `, `)}</i></p>
+            <div className="ResultsUnderCard">
+              <p>
+                <b>{selectedPet.name}</b>,{' '}
+                {selectedPet.breed.length > 1 ? 'Mixed' : selectedPet.breed[0]},{' '}
+                {selectedPet.age} years old
+              </p>
+              <p>
+                <i>
+                  Reported symptoms:{' '}
+                  {symptoms.map((symptom, index) =>
+                    index === symptoms.length - 1 ? symptom : symptom + `, `
+                  )}
+                </i>
+              </p>
+              <div className="divider"></div>
+              <div className="ResultOptionsContainer">
+                <div className="OptionsContainer">
+                  <DownloadIcon />
+                  <p>
+                    <u>Share or download</u>
+                  </p>
+                </div>
+                <div className='OptionsContainer'>
+                  <AccountBoxIcon />
+                  <p><u>Send to your provider</u></p>
+                </div>
+              </div>
             </div>
           )}
 

@@ -30,12 +30,7 @@ export default function PageNav({
 
   return (
     <div className='PageNavigator'>
-      {finishTest ? (
-        <>
-          <button className="formSubmit" onClick={() => navigate('/dashboard')}>
-            Finish Test
-          </button>
-        </>
+      {finishTest ? ( ''
       ) : (
         <>
           <h3
@@ -56,7 +51,7 @@ export default function PageNav({
             }
           >
             {currentPage === 5
-              ? 'Get Assessment'
+              ? 'VIEW RESULTS'
               : currentPage === 4 && currentSymptomIndex === symptoms.length - 1
               ? 'Finish Assessing Symptoms'
               : 'NEXT'}

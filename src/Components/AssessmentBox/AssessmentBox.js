@@ -165,7 +165,7 @@ export default function AssessmentBox({
           </>
         ) : (
           <div className='AssessmentReport'>
-            <p>{selectedPet.name}</p>
+            <h3>Assessment Report</h3>
             <ResultsList aiResponse={aiResponse} />
           </div>
         ))}
