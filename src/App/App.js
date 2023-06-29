@@ -25,10 +25,10 @@ export default function App() {
 
     return (
         <>
-            <Header />
-
+            
             {user ? (
                 <>
+                    <Header />
                     <Navbar />
                     <Routes>
                         {/* Establishing routes */}
