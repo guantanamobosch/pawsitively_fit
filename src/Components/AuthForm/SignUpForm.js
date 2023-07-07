@@ -11,6 +11,12 @@ export default function SignUpForm({ setUser, onCancel }) {
     error: ''
   });
 
+  const handleCancelButtonClick = () => {
+    if (onCancel) {
+      onCancel();
+    }
+  }
+
   function handleChange(evt) {
     setFormState({
       ...formState,
@@ -42,19 +48,19 @@ export default function SignUpForm({ setUser, onCancel }) {
       <div className="signup-form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Email</label>
+            <label>Email*</label>
             <input type="email" name="email" value={formState.email} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Username</label>
+            <label>Username*</label>
             <input type="text" name="username" value={formState.username} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label>Password*</label>
             <input type="password" name="password" value={formState.password} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Confirm Password</label>
+            <label>Confirm Password*</label>
             <input type="password" name="confirm" value={formState.confirm} onChange={handleChange} required />
           </div>
           <div className="form-group">
@@ -69,7 +75,10 @@ export default function SignUpForm({ setUser, onCancel }) {
               <label htmlFor="receiveUpdates" className="checkbox-label">I want to receive communications, including important updates and promotions.</label>
             </div>
           </div>
-          <button className="signup-btn" type="submit" disabled={disable}>SIGN UP</button>
+          <div className="button-group">
+            <button className="signup-btn" type="submit" disabled={disable}>Sign Up</button>
+            <button className="cancel-btn" onClick={handleCancelButtonClick}>Cancel</button>
+          </div>
         </form>
       </div>
       <p className="error-message">&nbsp;{formState.error}</p>
