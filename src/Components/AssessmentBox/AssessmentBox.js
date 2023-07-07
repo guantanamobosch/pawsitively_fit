@@ -104,7 +104,7 @@ export default function AssessmentBox({
                 deselectPet={deselectPet}
               />
             ))}
-            <button>I'm assessing another dog</button>
+            <button className='formSubmit'>I'm assessing another dog</button>
           </div>
         </>
       )}

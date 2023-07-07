@@ -10,16 +10,20 @@ export default function Header() {
   return (
     <div className="header">
       <nav className="header-navigation">
-        <h1>{<Pets className="pet-icon" />} petDoc</h1>
-        <div className='header-icon-container'>
-          <Link to="/dashboard">
-            {<Home className="header-icon" style={{ color: 'black' }} />}
+        <div className="pet-title-container">
+          <Link to="/dashboard" className="pet-title">
+            <h1>{<Pets style={{fontSize: '5vh'}} />} petDOC</h1>
           </Link>
-          <Link to="/messages">
-            {<Message className="header-icon" style={{ color: 'black' }} />}
+        </div>
+        <div className="header-icon-container">
+          <Link to="/dashboard" className="header-icon">
+            {<Home style={{fontSize: '5vh'}} />}
           </Link>
-          <Link to="/settings">
-            {<Settings className="header-icon" style={{ color: 'black' }} />}
+          <Link to="/messages" className="header-icon">
+            {<Message style={{fontSize: '5vh'}} />}
+          </Link>
+          <Link to="/settings" className="header-icon">
+            {<Settings style={{fontSize: '5vh'}} />}
           </Link>
         </div>
       </nav>
