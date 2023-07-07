@@ -1,5 +1,5 @@
 .header {
-    width: 100%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
   position: sticky;
@@ -7,36 +7,21 @@
   z-index: 100; /* ensuring the header is above other content */
   height: 80px;
   background-color: white;
-  }
-  
-  .header-navigation {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background-color: lightgray;
-    color: black;
-    box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
-  }
-  
-  .header-navigation h1 {
-    margin-left: 4%;
-    margin-right: auto;
-    transform: scale(2);
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-  }
-  
-  .header-links {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-icon {
-    margin-right: 30px;
-    transform: scale(2);
-    fill: black;
-  }
+}
+
+.header-navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: black;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
 
 .header-icon-container {
   display: flex;
@@ -59,8 +44,4 @@
 
 .header-icon {
   color: black;
-}
-
-h1 {
-  font-size: 40px;
 }

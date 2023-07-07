@@ -25,7 +25,7 @@ export default function AuthPage({ setUser }) {
       {showLoginForm && <h2>New User?</h2>}
       {showLoginForm && (
         <div>
-          <button className="signup-btn" onClick={handleCreateAccountClick}>
+          <button className="formSubmit" onClick={handleCreateAccountClick}>
             Create An Account
           </button>
         </div>

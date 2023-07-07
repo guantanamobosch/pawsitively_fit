@@ -76,8 +76,8 @@ export default function SignUpForm({ setUser, onCancel }) {
             </div>
           </div>
           <div className="button-group">
-            <button className="signup-btn" type="submit" disabled={disable}>Sign Up</button>
-            <button className="cancel-btn" onClick={handleCancelButtonClick}>Cancel</button>
+            <button className="formSubmit" type="submit" disabled={disable}>Sign Up</button>
+            <button className="formSubmit" onClick={handleCancelButtonClick}>Cancel</button>
           </div>
         </form>
       </div>
