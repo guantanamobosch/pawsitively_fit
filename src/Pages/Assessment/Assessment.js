@@ -71,7 +71,7 @@ export default function Assessment() {
   // Function to handle getting the assessment
   async function getAssessment() {
     setLoading(true)
-    const assessment = await generateAssessment(selectedPet, symptoms)
+    const assessment = await generateAssessment(selectedPet, symptoms, symptomDurations)
     console.log(assessment.data.choices[0].text)
     setAiResponse(assessment.data.choices[0].text)
     setLoading(false)

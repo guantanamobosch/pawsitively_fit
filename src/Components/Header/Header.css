@@ -1,7 +1,12 @@
 .header {
     width: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: sticky;
+  top: 0; /* sticking the header to the top of the viewport */
+  z-index: 100; /* ensuring the header is above other content */
+  height: 80px;
+  background-color: white;
   }
   
   .header-navigation {
@@ -18,6 +23,8 @@
     margin-left: 4%;
     margin-right: auto;
     transform: scale(2);
+    margin-block-start: 0px;
+    margin-block-end: 0px;
   }
   
   .header-links {
@@ -30,6 +37,29 @@
     transform: scale(2);
     fill: black;
   }
+
+.header-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet-title-container {
+  padding-left: 1vh;
+}
+
+.pet-title {
+  color: black;
+  text-decoration: none;
+}
+
+.pet-title:visited {
+  text-decoration: none;
+}
+
+.header-icon {
+  color: black;
+}
 
 h1 {
   font-size: 40px;

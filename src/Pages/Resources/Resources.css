@@ -1,5 +1,47 @@
-.resources-div-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.resources-page {
+  padding: 2vh 4vh;
+}
+
+.resources-card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 4vh 20vw;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2vh;
+  column-gap: 2vh;
+}
+
+.resources-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  text-align: center;
+  height: 15vh;
+}
+
+.resources-card:hover {
+  background-color: rgb(211, 211, 211);
+}
+
+.resources-card:active {
+  background-color: rgb(185, 185, 185);
+}
+
+.resources-card h3 {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+@media screen and (max-width: 900px) {
+  .resources-card-container {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+  .resources-card-container {
+    margin: 0vw 15vw;
+  }
 }
