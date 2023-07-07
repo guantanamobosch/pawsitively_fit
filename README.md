@@ -28,15 +28,15 @@
   
   ## :camera_flash: Screenshots
   
-  <details><summary>Home</summary><img src="https://user-images.githubusercontent.com/31415907/229678046-b23de7fe-79dc-4d22-9493-f26e2cb02a82.png"></img></details>
+  <details><summary>Sign In</summary><img src="https://github.com/guantanamobosch/petDOC/assets/31415907/d8b25571-0f52-412e-9c22-2446e101977d"></img></details>
 
-  <details><summary>Sign Up</summary><img src="https://user-images.githubusercontent.com/31415907/229678115-ae321e5c-d0df-40b8-bcbf-676cbf30cc48.png"></img></details>
+  <details><summary>Sign Up</summary><img src="https://github.com/guantanamobosch/petDOC/assets/31415907/554d2be8-2dab-46a7-aeb7-117e20731073"></img></details>
 
-  <details><summary>Trivia</summary><img src="https://user-images.githubusercontent.com/31415907/229678172-0ff6dad8-8dae-4887-8a98-6e755c3897a9.png"></img></details>
+  <details><summary>Dashboard</summary><img src="https://github.com/guantanamobosch/petDOC/assets/31415907/28813ab8-87c2-474e-ae84-69f2497a2240"></img></details>
 
-  <details><summary>Popup</summary><img src="https://user-images.githubusercontent.com/31415907/229678301-4e6e584d-a291-4272-a6e6-4dbbdd6662f4.png"></img></details>
+  <details><summary>Settings</summary><img src="https://github.com/guantanamobosch/petDOC/assets/31415907/38b01643-3402-4b75-97b6-8a69c0733519"></img></details>
 
-  <details><summary>Leaderboard</summary><img src="https://user-images.githubusercontent.com/31415907/229678371-619ce8d9-b503-44d6-9915-769a346bd82a.png"></img></details>
+  <details><summary>Symptom Assessment</summary><img src="https://github.com/guantanamobosch/petDOC/assets/31415907/c1f8faa0-60ae-4d09-a403-1e6f0766d4f7"></img></details>
 
 ## :computer: Technologies Used
 
@@ -95,5 +95,3 @@
 [:x:] Deploy to the Google Play Store <br>
 [:x:] Add the ability for Vets to make accounts<br>
 [:x:] Create a Terms of Service statement/page<br>
-
-This is Pawsitively Fit! Currently under construction (working in Dev branch or lower).<br>
