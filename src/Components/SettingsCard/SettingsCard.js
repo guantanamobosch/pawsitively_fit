@@ -47,19 +47,19 @@ export default function SettingsCard() {
           <h3>Contact Information</h3>
           <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="name">Name:{' '}</label>
               <input type="text" id="name" name="name" required />
             </div>
             <div>
-              <label htmlFor="address">Address:</label>
+              <label htmlFor="address">Address:{' '}</label>
               <input type="text" id="address" name="address" required />
             </div>
             <div>
-              <label htmlFor="phone">Phone:</label>
+              <label htmlFor="phone">Phone:{' '}</label>
               <input type="tel" id="phone" name="phone" required />
             </div>
             <div>
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email">Email:{' '}</label>
               <input type="email" id="email" name="email" required />
             </div>
             <button type="submit">Save</button>
