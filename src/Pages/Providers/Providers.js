@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Providers.css';
-import SearchBar from '../../Components/SearchBar/SearchBar';
+import VetSearchBar from '../../Components/SearchBar/SearchBar';
 import ProviderCard from '../../Components/ProviderCard/ProviderCard';
 import VetForm from '../../Components/VetForm/VetForm';
 import * as vetServices from '../../utilities/vets-utilities/vets-services';
@@ -83,7 +83,7 @@ export default function Providers({ user }) {
         )}
       </div>
 
-      <SearchBar onSearch={searchVets} />
+      <VetSearchBar onSearch={searchVets} />
       <div className="vetCardContainer">
         {searchResults.length > 0 ? (
           searchResults.map((vet, index) => (

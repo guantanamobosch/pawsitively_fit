@@ -1,193 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import "./Resources.css";
+import './Resources.css'
 
 // Material UI imports
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import Typography from "@mui/material/Typography";
-import { Breadcrumbs } from "@mui/material";
-// import ResourceCard from '../../Components/ResourceCard/ResourceCard'
-// import SearchBar from '../../Components/SearchBar/SearchBar'
+import { Breadcrumbs } from '@mui/material'
+import { ResourcesSearchBar } from '../../Components/SearchBar/SearchBar'
 
 export default function Resources() {
-    const theme = useTheme();
-    return (
-        <>
-            <Breadcrumbs>
-                <Link underline="hover" color="inherit" to="/dashboard">
-                    Home
-                </Link>
-                <Typography>Resources</Typography>
-            </Breadcrumbs>
-            <div className="resources-div-container">
-                <div>
-                    <h3 className="PageTitle">My Resources</h3>
-                    {/* <SearchBar /> */}
-                </div>
-                <Grid container columnSpacing={2} rowSpacing={4}>
-                    <Grid
-                        item
-                        xs={6}
-                        sm={4}
-                        md={4}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Card
-                            sx={{
-                                width: "100%",
-                                maxWidth: 500,
-                                maxHeight: 300,
-                                minHeight: 200,
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Link to="/assessment">
-                                <Typography variant="h5">
-                                    Symptom Assessment
-                                </Typography>
-                            </Link>
-                        </Card>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={6}
-                        sm={4}
-                        md={4}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Card
-                            sx={{
-                                width: "100%",
-                                maxWidth: 500,
-                                maxHeight: 300,
-                                minHeight: 200,
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Link to="/resources/breed-guide">
-                                <Typography variant="h5">
-                                    Breed Guide
-                                </Typography>
-                            </Link>
-                        </Card>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={6}
-                        sm={4}
-                        md={4}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Card
-                            sx={{
-                                width: "100%",
-                                maxWidth: 500,
-                                maxHeight: 300,
-                                minHeight: 200,
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Typography variant="h5">Pet Training</Typography>
-                        </Card>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={6}
-                        sm={4}
-                        md={4}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Card
-                            sx={{
-                                width: "100%",
-                                maxWidth: 500,
-                                maxHeight: 300,
-                                minHeight: 200,
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Typography variant="h5">Pet Travel</Typography>
-                        </Card>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={6}
-                        sm={4}
-                        md={4}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Card
-                            sx={{
-                                width: "100%",
-                                maxWidth: 500,
-                                maxHeight: 300,
-                                minHeight: 200,
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Typography variant="h5">Pet Nutrition</Typography>
-                        </Card>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={6}
-                        sm={4}
-                        md={4}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Card
-                            sx={{
-                                width: "100%",
-                                maxWidth: 500,
-                                maxHeight: 300,
-                                minHeight: 200,
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Typography variant="h5">Pet Shelters</Typography>
-                        </Card>
-                    </Grid>
-                </Grid>
-            </div>
-        </>
-    );
+  return (
+    <div className="resources-page">
+      <Breadcrumbs>
+        <Link underline="hover" color="inherit" to="/dashboard">
+          <p>Home</p>
+        </Link>
+        <p>Resources</p>
+      </Breadcrumbs>
+      <div>
+        <h3 className="PageTitle" style={{marginBottom: '2vh'}}>My Resources</h3>
+      </div>
+
+      <ResourcesSearchBar />
+
+      <div className="resources-card-container">
+        <Link to="/assessment">
+          <div className='resources-card'>
+            <h3>Symptom Assessment</h3>
+          </div>
+        </Link>
+        <Link to="/resources/breed-guide">
+          <div className='resources-card'>
+            <h3>Breed Guide</h3>
+          </div>
+        </Link>
+        <div className='resources-card'>
+          <h3>Pet Training</h3>
+        </div>
+        <div className='resources-card'>
+          <h3>Pet Travel</h3>
+        </div>
+        <div className='resources-card'>
+          <h3>Pet Nutrition</h3>
+        </div>
+        <div className='resources-card'>
+          <h3>Pet Shelters</h3>
+        </div>
+      </div>
+    </div>
+  )
 }
