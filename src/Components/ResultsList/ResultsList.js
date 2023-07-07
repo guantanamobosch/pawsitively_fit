@@ -12,7 +12,7 @@ export default function ResultsList({ aiResponse }) {
 
   return (
     <div>
-      <ul><i>{responseItems}</i></ul>
+      <ul style={{paddingInlineStart: '0px'}}><i>{responseItems}</i></ul>
       <button className="formSubmit" onClick={() => navigate('/dashboard')}>
         Finish Test
       </button>
