@@ -4,11 +4,15 @@ import { useNavigate } from 'react-router-dom'
 
 export default function ResultsList({ aiResponse }) {
   const navigate = useNavigate()
+
+  const responseItems = aiResponse
+    .trim()
+    .split('\n')
+    .map((item, index) => <li className='results-list-item' key={index}>{item}</li>)
+
   return (
     <div>
-      <p>
-        <i>{aiResponse}</i>
-      </p>
+      <ul><i>{responseItems}</i></ul>
       <button className="formSubmit" onClick={() => navigate('/dashboard')}>
         Finish Test
       </button>

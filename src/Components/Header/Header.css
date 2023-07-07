@@ -12,14 +12,13 @@
 .header-navigation {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-right: 2vh;
+  padding-right: 1vh;
   color: black;
 }
 
 .header-navigation h1 {
-  margin-left: 4%;
-  margin-right: auto;
   margin-block-start: 0px;
   margin-block-end: 0px;
 }
@@ -35,8 +34,21 @@
   align-items: center;
 }
 
+.pet-title-container {
+  padding-left: 1vh;
+}
+
+.pet-title {
+  color: black;
+  text-decoration: none;
+}
+
+.pet-title:visited {
+  text-decoration: none;
+}
+
 .header-icon {
-  fill: black;
+  color: black;
 }
 
 h1 {
