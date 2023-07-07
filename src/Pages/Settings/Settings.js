@@ -18,7 +18,7 @@ export default function Settings({ user, setUser }) {
     <div className='setings'>
       <div className="PageTitleContainer">
         <h3 className="PageTitle">Settings</h3>
-        <button onClick={handleLogout}>Log Out</button>
+        <button onClick={handleLogout} className='formSubmit'>Log Out</button>
       </div>
       <Dropdown />
       <SettingsCard />

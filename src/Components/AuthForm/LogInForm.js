@@ -53,7 +53,7 @@ export default function LogInForm({ setUser }) {
               required
             />
           </div>
-          <button className="login-btn" type="submit" disabled={disable}>SIGN IN</button>
+          <button className="formSubmit" type="submit" disabled={disable}>SIGN IN</button>
         </form>
       </div>
       <p className="error-message">{error}</p>
